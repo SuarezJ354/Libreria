@@ -43,7 +43,7 @@ export default function LibraryStats() {
 
     try {
       // Obtener todos los libros
-      const booksResponse = await fetch("http://localhost:8080/libros", {
+      const booksResponse = await fetch("https://libreriabackend-production.up.railway.app/libros", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -17,7 +17,7 @@ export default function LibraryBooks() {
   // Obtener libros
   useEffect(() => {
     setLoadingBooks(true);
-    fetch("http://localhost:8080/libros")
+    fetch("https://libreriabackend-production.up.railway.app/libros")
       .then((res) => {
         if (!res.ok) throw new Error("Error al cargar libros");
         return res.json();
@@ -38,7 +38,7 @@ export default function LibraryBooks() {
       return;
     }
     setLoadingFavorites(true);
-    fetch("http://localhost:8080/favoritos", {
+    fetch("https://libreriabackend-production.up.railway.app/favoritos", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -68,7 +68,7 @@ export default function LibraryBooks() {
 
     setUpdatingFavoriteIds((prev) => new Set(prev).add(bookId));
 
-    fetch(`http://localhost:8080/favoritos/${bookId}`, {
+    fetch(`https://libreriabackend-production.up.railway.app/favoritos/${bookId}`, {
       method,
       headers: {
         Authorization: `Bearer ${token}`,

@@ -9,7 +9,7 @@ export default function LibraryContainer() {
 
   // Obtener todos los libros
   useEffect(() => {
-    fetch("http://localhost:8080/libros")
+    fetch("https://libreriabackend-production.up.railway.app/libros")
       .then((res) => res.json())
       .then((data) => setBooks(data))
       .catch(console.error);
@@ -21,7 +21,7 @@ export default function LibraryContainer() {
       setFavorites(new Set());
       return;
     }
-    fetch("http://localhost:8080/favoritos", {
+    fetch("https://libreriabackend-production.up.railway.app/favoritos", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -42,7 +42,7 @@ export default function LibraryContainer() {
 
     const method = favorites.has(bookId) ? "DELETE" : "POST";
 
-    fetch(`http://localhost:8080/favoritos/${bookId}`, {
+    fetch(`https://libreriabackend-production.up.railway.app/favoritos/${bookId}`, {
       method,
       headers: {
         Authorization: `Bearer ${token}`,

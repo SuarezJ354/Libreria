@@ -15,7 +15,7 @@ export default function BooksList() {
       return;
     }
 
-    fetch("http://localhost:8080/libros", {
+    fetch("https://libreriabackend-production.up.railway.app/libros", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -37,7 +37,7 @@ export default function BooksList() {
   const handleDelete = (bookId, bookTitle) => {
     if (!window.confirm(`¿Estás seguro de que quieres eliminar el libro "${bookTitle}"?`)) return;
 
-    fetch(`http://localhost:8080/libros/${bookId}`, {
+    fetch(`https://libreriabackend-production.up.railway.app/libros/${bookId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

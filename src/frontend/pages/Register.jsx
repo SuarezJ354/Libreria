@@ -3,8 +3,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import "../../assets/css/register.css"
 
-const API_BASE_URL = "http://localhost:8080"; // Ajusta según tu puerto
-
+const API_BASE_URL = "https://libreriabackend-production.up.railway.app";
 export default function Register() {
     const { register, handleSubmit, control, formState: { errors } } = useForm();
     const contra = useWatch({ control, name: "password" });

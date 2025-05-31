@@ -7,7 +7,7 @@ export const pdfService = {
   descargarPDF: async (libroId, usuarioRegistrado = false, haPagado = false) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/libros/${libroId}/descargar`,
+        `https://libreriabackend-production.up.railway.app/libros/${libroId}/descargar`,
         {
           params: {
             usuarioRegistrado,
@@ -38,7 +38,7 @@ export const pdfService = {
   descargarYGuardar: async (libroId, nombreArchivo, usuarioRegistrado = false, haPagado = false) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/libros/${libroId}/descargar`,
+        `https://libreriabackend-production.up.railway.app/libros/${libroId}/descargar`,
         {
           params: {
             usuarioRegistrado,

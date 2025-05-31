@@ -12,7 +12,7 @@ export default function BooksFavorite() {
 
   // 1. Traer todos los libros desde backend (para info completa)
   useEffect(() => {
-    fetch("http://localhost:8080/libros")
+    fetch("https://libreriabackend-production.up.railway.app/libros")
       .then(res => res.json())
       .then(data => setBooks(data))
       .catch(console.error);
@@ -22,7 +22,7 @@ export default function BooksFavorite() {
   useEffect(() => {
     if (!token) return setFavorites(new Set());
 
-    fetch("http://localhost:8080/favoritos", {
+    fetch("https://libreriabackend-production.up.railway.app/favoritos", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(res => res.json())
@@ -35,7 +35,7 @@ export default function BooksFavorite() {
 
   // Quitar favorito
   const removeFavorite = (bookId) => {
-    fetch(`http://localhost:8080/favoritos/${bookId}`, {
+    fetch(`https://libreriabackend-production.up.railway.app/favoritos/${bookId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     })

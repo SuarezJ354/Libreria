@@ -10,7 +10,7 @@ export default function SidebarLibrary() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/categorias")
+    fetch("https://libreriabackend-production.up.railway.app/categorias")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Error al cargar categorías:", err));

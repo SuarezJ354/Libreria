@@ -13,8 +13,8 @@ export default function BooksDetails() {
     const fetchBookAndChapters = async () => {
       try {
 
-        const libroRes = await axios.get(`http://localhost:8080/libros/${id}`);
-        const capsRes = await axios.get(`http://localhost:8080/capitulos/${id}`);
+        const libroRes = await axios.get(`https://libreriabackend-production.up.railway.app/libros/${id}`);
+        const capsRes = await axios.get(`https://libreriabackend-production.up.railway.app/capitulos/${id}`);
 
         setBook(libroRes.data);
         setCapitulos(capsRes.data);

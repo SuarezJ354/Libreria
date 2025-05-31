@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
-const API = "http://localhost:8080";
+const API = "https://libreriabackend-production.up.railway.app";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);

@@ -18,7 +18,7 @@ export default function ChapterReader() {
     const fetchChapter = async () => {
       try {
         // Llamada corregida: libroId y número de capítulo
-        const res = await axios.get(`http://localhost:8080/capitulos/${libroId}/${numeroCapitulo}`);
+        const res = await axios.get(`https://libreriabackend-production.up.railway.app/capitulos/${libroId}/${numeroCapitulo}`);
         const chapterData = res.data;
         
         if (!chapterData) {
@@ -32,12 +32,12 @@ export default function ChapterReader() {
 
         // Obtener todos los capítulos del libro para navegación
         if (libroId) {
-          const capsRes = await axios.get(`http://localhost:8080/capitulos/${libroId}`);
+          const capsRes = await axios.get(`https://libreriabackend-production.up.railway.app/capitulos/${libroId}`);
           const sorted = capsRes.data.sort((a, b) => a.orden - b.orden);
           setCapitulosOrdenados(sorted);
         }
         if (libroId) {
-          const libroRes = await axios.get(`http://localhost:8080/libros/${libroId}`);
+          const libroRes = await axios.get(`https://libreriabackend-production.up.railway.app/libros/${libroId}`);
           setLibro(libroRes.data);
         }
 
@@ -64,7 +64,7 @@ export default function ChapterReader() {
     }
 
     try {
-      const response = await axios.post(`http://localhost:8080/purchase/capitulo/${chapter.id}`, {}, {
+      const response = await axios.post(`https://libreriabackend-production.up.railway.app/purchase/capitulo/${chapter.id}`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

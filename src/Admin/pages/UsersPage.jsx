@@ -15,7 +15,7 @@ useEffect(() => {
     return;
   }
 
-  fetch("http://localhost:8080/usuarios/", {
+  fetch("https://libreriabackend-production.up.railway.app/usuarios/", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -51,7 +51,7 @@ function guardarCambios() {
   console.log("Enviando datos:", formData);
   console.log("Token usado:", token); // Verificar si el token se está enviando
 
-  fetch(`http://localhost:8080/usuarios/${editUsuarioId}`, {
+  fetch(`https://libreriabackend-production.up.railway.app/usuarios/${editUsuarioId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -76,7 +76,7 @@ function guardarCambios() {
   function eliminarUsuario(id) {
     if (!window.confirm("¿Seguro que deseas eliminar este usuario?")) return;
 
-    fetch(`http://localhost:8080/usuarios/${id}`, {
+    fetch(`https://libreriabackend-production.up.railway.app/usuarios/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

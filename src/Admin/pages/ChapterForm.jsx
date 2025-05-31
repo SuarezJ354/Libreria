@@ -19,7 +19,7 @@ export default function ChapterForm() {
    if (!bookId || !token) return;
    
    try {
-     const response = await fetch(`http://localhost:8080/libros/${bookId}`, {
+     const response = await fetch(`https://libreriabackend-production.up.railway.app/libros/${bookId}`, {
        headers: {
          Authorization: `Bearer ${token}`,
        },
@@ -43,7 +43,7 @@ export default function ChapterForm() {
    if (!bookId || !token) return;
 
    try {
-     const response = await fetch(`http://localhost:8080/capitulos/${bookId}`, {
+     const response = await fetch(`https://libreriabackend-production.up.railway.app/capitulos/${bookId}`, {
        headers: {
          Authorization: `Bearer ${token}`,
        },
@@ -107,7 +107,7 @@ export default function ChapterForm() {
      const chapterToRemove = chapters.find(ch => ch.id === chapterId);
      
      if (chapterToRemove && !chapterToRemove.isNew && !chapterId.toString().startsWith('temp_')) {
-       const response = await fetch(`http://localhost:8080/capitulos/${chapterId}`, {
+       const response = await fetch(`https://libreriabackend-production.up.railway.app/capitulos/${chapterId}`, {
          method: "DELETE",
          headers: {
            Authorization: `Bearer ${token}`,
@@ -166,7 +166,7 @@ export default function ChapterForm() {
    if (!bookId || !token) return;
 
    try {
-     const response = await fetch(`http://localhost:8080/capitulos/${bookId}`, {
+     const response = await fetch(`https://libreriabackend-production.up.railway.app/capitulos/${bookId}`, {
        headers: {
          Authorization: `Bearer ${token}`,
        },
@@ -204,7 +204,7 @@ export default function ChapterForm() {
        };
 
        promises.push(
-         fetch("http://localhost:8080/capitulos", {
+         fetch("https://libreriabackend-production.up.railway.app/capitulos", {
            method: "POST",
            headers: {
              "Content-Type": "application/json",
@@ -228,7 +228,7 @@ export default function ChapterForm() {
        };
 
        promises.push(
-         fetch(`http://localhost:8080/capitulos/${chapter.id}`, {
+         fetch(`https://libreriabackend-production.up.railway.app/capitulos/${chapter.id}`, {
            method: "PUT",
            headers: {
              "Content-Type": "application/json",

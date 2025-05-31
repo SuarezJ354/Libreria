@@ -27,7 +27,7 @@ export default function BookForm() {
   useEffect(() => {
     if (isEditing && token) {
       setLoadingBook(true);
-      fetch(`http://localhost:8080/libros/${id}`, {
+      fetch(`https://libreriabackend-production.up.railway.app/libros/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -116,8 +116,8 @@ export default function BookForm() {
 
     // Configurar la petición según si estamos creando o editando
     const url = isEditing 
-      ? `http://localhost:8080/libros/${id}` 
-      : "http://localhost:8080/libros";
+      ? `https://libreriabackend-production.up.railway.app/libros/${id}` 
+      : "https://libreriabackend-production.up.railway.app/libros";
     
     const method = isEditing ? "PUT" : "POST";
 

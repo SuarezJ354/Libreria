@@ -7,7 +7,7 @@ export default function BooksByCategory() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/libros/categoria/${categoria}`)
+    fetch(`https://libreriabackend-production.up.railway.app/libros/categoria/${categoria}`)
       .then((res) => res.json())
       .then((data) => setBooks(data))
       .catch((err) => console.error("Error al obtener libros por categoría:", err));
