@@ -23,6 +23,7 @@ import FavoriteBooks from "./frontend/pages/FavoriteBooks";
 import CategoriesBook from "./frontend/pages/CategoriesBook";
 import BooksDetails from "./frontend/pages/BooksDetails";
 import ChapterReader from "./frontend/pages/ChapterReader";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -59,6 +60,8 @@ function App() {
         
           <Route path="login" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
+          <Route path="*" element={<NotFound/>}/>
+
 
       </Routes>
     </AuthProvider>
