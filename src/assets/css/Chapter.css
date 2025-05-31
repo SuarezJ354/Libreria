@@ -1,0 +1,351 @@
+/* ===============================
+   ChapterReader.css
+   =============================== */
+
+/* ========= Layout Principal ========= */
+.chapter-reader-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* ========= Header ========= */
+.chapter-header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 0;
+  z-index: 1020;
+}
+
+.chapter-header .container {
+  padding: 1rem 0;
+}
+
+/* Navegación del Header */
+.chapter-nav-buttons .btn {
+  font-size: 0.875rem;
+}
+
+.chapter-progress {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* ========= Badges ========= */
+.chapter-badge-free {
+  background-color: #28a745 !important;
+}
+
+.chapter-badge-premium {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+/* ========= Contenido Principal ========= */
+.chapter-main-content {
+  padding: 3rem 0;
+}
+
+/* Título del Capítulo */
+.chapter-title-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.chapter-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.chapter-title-divider {
+  width: 80px;
+  height: 3px;
+  background-color: #6a0dad;
+  border: none;
+  margin: 0 auto;
+}
+
+/* ========= Tarjeta de Contenido ========= */
+.chapter-content-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 2rem;
+}
+
+/* ========= Contenido del Capítulo ========= */
+.chapter-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.chapter-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.chapter-content h1,
+.chapter-content h2,
+.chapter-content h3,
+.chapter-content h4,
+.chapter-content h5,
+.chapter-content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.chapter-content blockquote {
+  border-left: 4px solid #6a0dad;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0.375rem;
+  font-style: italic;
+}
+
+.chapter-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.375rem;
+}
+
+.chapter-content ul,
+.chapter-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.chapter-content li {
+  margin-bottom: 0.5rem;
+}
+
+.chapter-content strong {
+  font-weight: 600;
+}
+
+.chapter-content em {
+  font-style: italic;
+}
+
+/* ========= Botón de Navegación ========= */
+.chapter-nav-button {
+  border: 1px solid #6a0dad;
+  background-color: transparent;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.chapter-nav-button:hover {
+  background-color: #6a0dad;
+  color: white;
+}
+
+/* ========= Navegación entre Capítulos ========= */
+.chapter-navigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.chapter-nav-info {
+  display: inline-block;
+}
+
+.chapter-nav-info.text-start {
+  text-align: left !important;
+}
+
+.chapter-nav-info.text-end {
+  text-align: right !important;
+}
+
+.chapter-nav-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.chapter-nav-title {
+  font-weight: 600;
+}
+
+/* ========= Contenido Premium ========= */
+.premium-content-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 3rem;
+  text-align: center;
+}
+
+.premium-lock-icon {
+  font-size: 3rem;
+  color: #ffc107;
+  margin-bottom: 2rem;
+}
+
+.premium-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.premium-description {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.premium-price-card {
+  background-color: #f8f9fa;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.premium-price {
+  color: #6a0dad;
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.premium-access-note {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.premium-buy-button {
+  font-size: 1.125rem;
+  padding: 0.75rem 2rem;
+}
+
+.premium-guarantee {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* ========= Estados de Carga ========= */
+.loading-container,
+.error-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content,
+.error-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  color: #6a0dad;
+  margin-bottom: 1rem;
+}
+
+.loading-text,
+.error-title {
+  color: #6c757d;
+}
+
+/* ========= Íconos Personalizados ========= */
+.mi-icono {
+  color: #6a0dad; 
+  font-size: 20px;
+}
+
+.btn-morado {
+  border-color: #6a0dad;
+  color: #6a0dad;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-morado i {
+  color: #6a0dad;
+  transition: color 0.3s ease;
+}
+
+.btn-morado:hover {
+  background-color: #6a0dad;
+  color: #ffffff;
+}
+
+.btn-morado:hover i {
+  color: #ffffff;
+}
+
+
+/* Ícono morado por defecto */
+.chapter-nav-button .mi-icono {
+  color: #6a0dad;
+  transition: color 0.3s ease;
+}
+
+/* Al pasar el mouse, fondo morado e ícono blanco */
+.chapter-nav-button:hover {
+  background-color: #6a0dad;
+  color: #ffffff;
+}
+
+.chapter-nav-button:hover .mi-icono {
+  color: #ffffff;
+}
+
+
+
+/* ========= Responsive ========= */
+@media (min-width: 768px) {
+  .chapter-content-card {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .chapter-title {
+    font-size: 2rem;
+  }
+
+  .chapter-content {
+    font-size: 1rem !important;
+  }
+
+  .chapter-content-card {
+    padding: 1.5rem;
+  }
+
+  .premium-content-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .chapter-nav-title {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .chapter-main-content {
+    padding: 2rem 0;
+  }
+
+  .chapter-title-section {
+    margin-bottom: 2rem;
+  }
+
+  .chapter-navigation {
+    margin-top: 2rem;
+  }
+}

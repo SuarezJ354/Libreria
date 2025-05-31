@@ -1,0 +1,53 @@
+/* Estilos generales */
+.users-container {
+  padding: 24px;
+}
+
+/* Tabla */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.users-table th, .users-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #6a0dad;
+  color: white;
+  font-weight: bold;
+}
+
+/* Botones */
+.action-btn {
+  padding: 8px 12px;
+  margin: 3px;
+  border: none;
+  cursor: pointer;
+border-radius: 40px;
+
+}
+
+.edit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.save-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #ffc107;
+  color: black;
+}
