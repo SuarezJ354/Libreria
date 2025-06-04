@@ -44,7 +44,7 @@ const formData = async (data) => {
 
   return (
     <div className="body">
-      <div className="container-form login hide">
+      <div className="container-form login hide" data-testid="login-page">
         <div className="information">
           <div className="info-childs">
             <h2>¡¡Bienvenido!!</h2>

@@ -1,0 +1,115 @@
+.chapter-wrapper {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.chapter-card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.chapter-card-header {
+  background-color: #ffffff;
+  color: #2c2c2c;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.chapter-card-header h5 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chapter-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+
+.chapter-delete-btn {
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.chapter-delete-btn:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.chapter-card-body {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group .required {
+  color: red;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group small {
+  margin-top: 0.25rem;
+  color: #6c757d;
+}
+
+.chapter-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.info-box {
+  flex: 1;
+  min-width: 150px;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dee2e6;
+  font-weight: 500;
+}
+
+.info-box.free {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.info-box.premium {
+  background-color: #fff3cd;
+  color: #664d03;
+}

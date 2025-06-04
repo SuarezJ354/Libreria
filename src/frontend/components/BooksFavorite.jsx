@@ -1,75 +1,89 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import "../../assets/css/sidebarLibrary.css";
 import { useNavigate } from "react-router-dom";
 
 export default function BooksFavorite() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   const [favorites, setFavorites] = useState(new Set());
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
 
   const token = localStorage.getItem("token");
 
-  // 1. Traer todos los libros desde backend (para info completa)
+  // Fetch all books
   useEffect(() => {
-    fetch("https://libreriabackend-production.up.railway.app/libros")
-      .then(res => res.json())
-      .then(data => setBooks(data))
-      .catch(console.error);
+    async function fetchBooks() {
+      try {
+        const res = await fetch("https://libreriabackend-production.up.railway.app/libros");
+        if (!res.ok) throw new Error("Error al cargar libros");
+        const data = await res.json();
+        setBooks(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchBooks();
   }, []);
 
-  // 2. Traer favoritos del usuario
+  // Fetch favorites if token exists
   useEffect(() => {
-    if (!token) return setFavorites(new Set());
+    if (!token) {
+      setFavorites(new Set());
+      return;
+    }
 
-    fetch("https://libreriabackend-production.up.railway.app/favoritos", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(res => res.json())
-      .then(data => {
-        const favIds = new Set(data.map(fav => fav.libro.id));
-        setFavorites(favIds);
-      })
-      .catch(console.error);
+    async function fetchFavorites() {
+      try {
+        const res = await fetch("https://libreriabackend-production.up.railway.app/favoritos", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) throw new Error("Error al cargar favoritos");
+        const data = await res.json();
+        setFavorites(new Set(data.map(fav => fav.libro.id)));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchFavorites();
   }, [token]);
 
-  // Quitar favorito
-  const removeFavorite = (bookId) => {
-    fetch(`https://libreriabackend-production.up.railway.app/favoritos/${bookId}`, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(res => {
-        if (res.ok) {
-          // Actualizar estado local
-          setFavorites(prev => {
-            const newFav = new Set(prev);
-            newFav.delete(bookId);
-            return newFav;
-          });
-        } else {
-          console.error("Error al eliminar favorito");
-        }
-      })
-      .catch(console.error);
-  };
+  // Remove favorite handler
+  const removeFavorite = useCallback(async (bookId) => {
+    if (!token) return;
+    try {
+      const res = await fetch(`https://libreriabackend-production.up.railway.app/favoritos/${bookId}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error("Error al eliminar favorito");
+      setFavorites(prev => {
+        const updated = new Set(prev);
+        updated.delete(bookId);
+        return updated;
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }, [token]);
 
-  // Filtrar solo libros favoritos
-  const favoriteBooks = books.filter(book => favorites.has(book.id));
+  // Filtered favorite books
+  const favoriteBooks = useMemo(() => books.filter(book => favorites.has(book.id)), [books, favorites]);
 
-  // Categorías para filtro (de favoritos)
-  const categories = [
-    "All Categories",
-    ...new Set(favoriteBooks.map(book => book.genero || book.genre))
-  ];
+  // Categories from favorite books
+  const categories = useMemo(() => {
+    const cats = new Set(favoriteBooks.map(book => book.genero || book.genre).filter(Boolean));
+    return ["All Categories", ...cats];
+  }, [favoriteBooks]);
 
-  // Filtrar favoritos por categoría
-  const filteredBooks = selectedCategory === "All Categories"
-    ? favoriteBooks
-    : favoriteBooks.filter(book => (book.genero || book.genre) === selectedCategory);
+  // Books filtered by selected category
+  const filteredBooks = useMemo(() => {
+    if (selectedCategory === "All Categories") return favoriteBooks;
+    return favoriteBooks.filter(book => (book.genero || book.genre) === selectedCategory);
+  }, [selectedCategory, favoriteBooks]);
 
   return (
-    <div id="content" style={{ backgroundColor: "#fafafa", padding: "20px", minHeight: "100vh" }}>
+    <div id="content" style={{ backgroundColor: "#fafafa", padding: 20, minHeight: "100vh" }}>
       <div className="container-fluid">
         <div className="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 className="h3 mb-0 text-gray-800 my-4 fw-bold">Mis Libros Favoritos</h1>
@@ -79,47 +93,53 @@ export default function BooksFavorite() {
             value={selectedCategory}
             onChange={e => setSelectedCategory(e.target.value)}
           >
-            {categories.map((category, i) => (
-              <option key={i} value={category}>{category}</option>
+            {categories.map(category => (
+              <option key={category} value={category}>{category}</option>
             ))}
           </select>
         </div>
 
         <div className="book-list">
-          {filteredBooks.length === 0 && <p>No tienes libros favoritos en esta categoría.</p>}
+          {filteredBooks.length === 0 ? (
+            <p>No tienes libros favoritos en esta categoría.</p>
+          ) : (
+            filteredBooks.map(book => (
+              <div key={book.id} className="book-card">
+                <img
+                  src={book.imagenPortada || book.image}
+                  alt={book.titulo || book.name}
+                  className="book-image"
+                />
+                <div className="book-info">
+                  <h3 className="book-title">{book.titulo || book.name}</h3>
+                  <p className="book-description">{book.descripcion || book.description}</p>
 
-          {filteredBooks.map(book => (
-            <div key={book.id} className="book-card">
-              <img src={book.imagenPortada || book.image} alt={book.titulo || book.name} className="book-image" />
-              <div className="book-info">
-                <h3 className="book-title">{book.titulo || book.name}</h3>
-                <p className="book-description">{book.descripcion || book.description}</p>
-
-                <div>
-                  <button
+                  <div>
+                    <button
                       className="read-more-btn mx-3"
                       style={{ textDecoration: "none" }}
                       onClick={() => navigate(`/book/${book.id}`)}
                     >
                       Leer Más
-                  </button>
+                    </button>
 
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    fill="#e00"
-                    className="bi bi-heart-fill"
-                    viewBox="0 0 16 16"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => removeFavorite(book.id)}
-                  >
-                    <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="#e00"
+                      className="bi bi-heart-fill"
+                      viewBox="0 0 16 16"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => removeFavorite(book.id)}
+                    >
+                      <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </div>

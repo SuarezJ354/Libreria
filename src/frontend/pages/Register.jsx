@@ -59,7 +59,7 @@ export default function Register() {
 
     return (
         <div className="body">
-            <div className="container-form register">
+            <div className="container-form register" data-testid="register-page">
             <div className="information">
                 <div className="info-childs">
                     <h2>Bienvenido</h2>

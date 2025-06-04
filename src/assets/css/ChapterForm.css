@@ -1,0 +1,234 @@
+/* Mensajes flotantes */
+.message-box {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  min-width: 240px;
+  box-shadow: 0 4px 15px rgba(89, 83, 205, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: fadeInOut 4s forwards;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #5953cd 0%, #433ba8 100%);
+}
+
+.message-box.success {
+  background: linear-gradient(135deg, #5953cd 0%, #433ba8 100%);
+  box-shadow: 0 4px 20px rgba(89, 83, 205, 0.6);
+}
+
+.message-box.error {
+  background: linear-gradient(135deg, #a84b4b 0%, #6e3535 100%);
+  box-shadow: 0 4px 20px rgba(168, 75, 75, 0.6);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* ChapterForm.css */
+
+/* Contenedor general */
+#content {
+  padding: 2.5rem 2rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3b3a69;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Encabezado */
+h1.h3 {
+  color: #4a4495;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  user-select: none;
+  text-shadow: 0 1px 3px rgba(89, 83, 205, 0.4);
+}
+
+.text-muted {
+  color: #7a78aa !important;
+  font-style: italic;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Botón Volver */
+.btn-primary {
+  background: linear-gradient(135deg, #5953cd 0%, #453bad 100%);
+  border: none;
+  border-radius: 30px;
+  padding: 0.65rem 1.9rem;
+  font-weight: 700;
+  color: #f0e9ff;
+  box-shadow: 0 6px 14px rgba(89, 83, 205, 0.45);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  user-select: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, #4438a8 0%, #625ccf 100%);
+  box-shadow: 0 10px 25px rgba(70, 65, 170, 0.65);
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Controles principales - tarjeta */
+.cards.shadows {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(89, 83, 205, 0.13);
+  padding: 2.2rem 2.8rem;
+  margin-bottom: 2.3rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.cards.shadows:hover {
+  box-shadow: 0 20px 38px rgba(89, 83, 205, 0.25);
+}
+
+
+/* Títulos dentro de la tarjeta */
+h5 {
+  color: #5c58a6;
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 1px 2px rgba(89, 83, 205, 0.2);
+}
+
+small.text-muted {
+  font-size: 0.87rem;
+  color: #9a98c9;
+  font-weight: 600;
+}
+
+/* Botones */
+.btn-success {
+  background: linear-gradient(135deg, #5953cd 0%, #443bb8 90%);
+  border: none;
+  border-radius: 50px;
+  padding: 0.55rem 1.65rem;
+  font-weight: 700;
+  color: #eaeaff;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 7px 20px rgba(89, 83, 205, 0.33);
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background: linear-gradient(135deg, #3e39a2 0%, #5e59ce 90%);
+  box-shadow: 0 10px 30px rgba(61, 55, 165, 0.55);
+  outline: none;
+}
+
+.btn-primary {
+  border-radius: 50px;
+  padding: 0.55rem 1.75rem;
+  font-weight: 700;
+  color: #eaeaff;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 7px 20px rgba(89, 83, 205, 0.33);
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, #443bb8 0%, #625ccf 100%);
+  box-shadow: 0 10px 30px rgba(70, 65, 170, 0.55);
+  outline: none;
+}
+
+/* Spinner de carga dentro de botones */
+.spinner-border-sm {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-width: 0.18em;
+  border-top-color: #d6d3ff;
+}
+
+/* Lista de capítulos */
+.rows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  margin-top: 0;
+}
+
+/* Mensaje cuando no hay capítulos */
+.text-center p {
+  font-size: 1.3rem;
+  color: #7a78aa;
+  margin-top: 4.3rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Estilos generales para iconos */
+.fas {
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #content {
+    padding: 1.6rem 1.2rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  
+  .card.shadow {
+    padding: 1.6rem 2rem;
+  }
+  
+  h1.h3 {
+    font-size: 1.85rem;
+  }
+  
+  h5 {
+    font-size: 1.15rem;
+  }
+  
+  .btn-primary, .btn-success {
+    width: 100%;
+    justify-content: center;
+  }
+}

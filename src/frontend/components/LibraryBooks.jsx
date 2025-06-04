@@ -16,43 +16,83 @@ export default function LibraryBooks() {
 
   // Obtener libros
   useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+    
     setLoadingBooks(true);
-    fetch("https://libreriabackend-production.up.railway.app/libros")
+    fetch("https://libreriabackend-production.up.railway.app/libros", {
+      signal: controller.signal
+    })
       .then((res) => {
         if (!res.ok) throw new Error("Error al cargar libros");
         return res.json();
       })
       .then((data) => {
-        setBooks(data);
-        setErrorBooks(null);
+        if (isMounted) {
+          setBooks(data);
+          setErrorBooks(null);
+        }
       })
-      .catch((err) => setErrorBooks(err.message))
-      .finally(() => setLoadingBooks(false));
+      .catch((err) => {
+        if (isMounted && err.name !== 'AbortError') {
+          setErrorBooks(err.message);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoadingBooks(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
   }, []);
 
   // Obtener favoritos del usuario
   useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
     if (!token) {
       setFavorites(new Set());
       setLoadingFavorites(false);
       return;
     }
+    
     setLoadingFavorites(true);
     fetch("https://libreriabackend-production.up.railway.app/favoritos", {
       headers: { Authorization: `Bearer ${token}` },
+      signal: controller.signal
     })
       .then((res) => {
         if (!res.ok) throw new Error("Error al cargar favoritos");
         return res.json();
       })
       .then((data) => {
-        // data es array de Favorito { id, usuario, libro }
-        const favIds = new Set(data.map((fav) => fav.libro.id));
-        setFavorites(favIds);
-        setErrorFavorites(null);
+        if (isMounted) {
+          // data es array de Favorito { id, usuario, libro }
+          const favIds = new Set(data.map((fav) => fav.libro.id));
+          setFavorites(favIds);
+          setErrorFavorites(null);
+        }
       })
-      .catch((err) => setErrorFavorites(err.message))
-      .finally(() => setLoadingFavorites(false));
+      .catch((err) => {
+        if (isMounted && err.name !== 'AbortError') {
+          setErrorFavorites(err.message);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoadingFavorites(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
   }, [token]);
 
   // Toggle favorito (agregar o quitar)

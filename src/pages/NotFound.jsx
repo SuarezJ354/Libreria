@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center vh-100 bg-light text-dark text-center p-4">
+    <div 
+      data-testid="not-found-page"
+      className="d-flex flex-column justify-content-center align-items-center vh-100 bg-light text-dark text-center p-4">
       <h1 className="display-1 fw-bold">404</h1>
       <p className="h4 mb-3">Página no encontrada</p>
       <p className="mb-4">
