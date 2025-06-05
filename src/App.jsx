@@ -19,6 +19,7 @@ import NotificationsPanel from "./Admin/components/Notifications";
 import Login from "./frontend/pages/login";
 import Register from "./frontend/pages/Register";
 
+import SearchResults from "./frontend/pages/SearchResult";
 import Library from "./frontend/pages/Library";
 import FavoriteBooks from "./frontend/pages/FavoriteBooks";
 import CategoriesBook from "./frontend/pages/CategoriesBook";
@@ -40,6 +41,7 @@ function App() {
           <Route path="capitulos/:libroId/:numeroCapitulo" element={<ChapterReader />} />
           <Route path="books/category/:categoria" element={<BooksByCategory />} />
           <Route path="messages" element={<Messages/>}/>
+          <Route path="/search" element={<SearchResults />} />
         </Route>
 
         {/* Rutas de autenticación sin layout específico */}

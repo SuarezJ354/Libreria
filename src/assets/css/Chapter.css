@@ -1,5 +1,5 @@
 /* ===============================
-   ChapterReader.css (Optimizado con #5953cd)
+   ChapterReader.css (Corregido - Resaltado Optimizado)
    =============================== */
 
 /* ========= Layout Principal ========= */
@@ -82,41 +82,147 @@
   box-shadow: 0 6px 18px rgba(89, 83, 205, 0.25);
 }
 
-/* ========= Contenido del Capítulo ========= */
+/* ========= Contenido del Capítulo con Formato APA ========= */
 .chapter-content {
-  font-size: 1.125rem;
-  line-height: 1.85;
+  /* Espaciado y márgenes APA */
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
+  line-height: 2; /* Doble espaciado APA */
+  
+  /* Tipografía APA base */
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14pt;
   color: #2c3e50;
-  font-family: 'Georgia', 'Times New Roman', serif;
-}
-
-.chapter-content p {
-  margin-bottom: 1.5rem;
   text-align: justify;
+  
+  /* Propiedades de selección */
+  white-space: pre-line;
+  user-select: text;
+  cursor: text;
+  
+  /* Posición relativa para elementos resaltados */
+  position: relative;
 }
 
+/* Versión web-friendly del contenido APA */
+.chapter-content.web-friendly {
+  padding-left: 2rem;
+  padding-right: 1rem;
+  line-height: 1.8; /* Espaciado más cómodo para web */
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 16px; /* Más legible en pantalla */
+  color: #2c3e50;
+}
+
+/* Párrafos con formato APA */
+.chapter-content p {
+  margin-bottom: 0; /* Sin espacio extra entre párrafos en APA estricto */
+  text-indent: 0.5in; /* Sangría de primera línea APA */
+  text-align: justify;
+  position: relative; /* Para elementos anidados */
+}
+
+.chapter-content.web-friendly p {
+  margin-bottom: 0.5rem;
+  text-indent: 1.5rem; /* Sangría más sutil para web */
+}
+
+/* Primer párrafo sin sangría */
+.chapter-content p:first-child {
+  text-indent: 0;
+}
+
+/* Párrafos después de encabezados sin sangría */
+.chapter-content h1 + p, 
+.chapter-content h2 + p, 
+.chapter-content h3 + p, 
+.chapter-content h4 + p, 
+.chapter-content h5 + p, 
+.chapter-content h6 + p {
+  text-indent: 0;
+}
+
+/* Encabezados con formato APA */
 .chapter-content h1,
 .chapter-content h2,
 .chapter-content h3,
 .chapter-content h4,
 .chapter-content h5,
 .chapter-content h6 {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-weight: 700;
+  line-height: 2;
   color: #3b3486;
+  position: relative; /* Para elementos anidados */
 }
 
+.chapter-content h1 {
+  text-align: center;
+  font-size: 12pt;
+}
+
+.chapter-content h2 {
+  text-align: center;
+  font-size: 12pt;
+}
+
+.chapter-content h3 {
+  text-align: left;
+  font-size: 12pt;
+}
+
+.chapter-content h4 {
+  text-align: left;
+  font-size: 12pt;
+  font-style: italic;
+}
+
+.chapter-content h5 {
+  text-align: left;
+  font-size: 12pt;
+  font-style: italic;
+  text-indent: 0.5in;
+}
+
+/* Versión web-friendly de encabezados */
+.chapter-content.web-friendly h1,
+.chapter-content.web-friendly h2,
+.chapter-content.web-friendly h3,
+.chapter-content.web-friendly h4,
+.chapter-content.web-friendly h5,
+.chapter-content.web-friendly h6 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.25rem;
+}
+
+.chapter-content.web-friendly h1 {
+  font-size: 1.75rem;
+}
+
+.chapter-content.web-friendly h2 {
+  font-size: 1.5rem;
+}
+
+/* Blockquotes manteniendo el estilo original */
 .chapter-content blockquote {
   border-left: 5px solid #5953cd;
   background-color: #f0f0ff;
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
+  margin-left: 2.5rem; /* Alineado con el contenido */
   border-radius: 0.5rem;
   font-style: italic;
   color: #4a4a6a;
+  position: relative; /* Para elementos anidados */
 }
 
+.chapter-content.web-friendly blockquote {
+  margin-left: 2rem;
+}
+
+/* Imágenes */
 .chapter-content img {
   max-width: 100%;
   height: auto;
@@ -125,16 +231,25 @@
   box-shadow: 0 4px 12px rgba(89, 83, 205, 0.1);
 }
 
+/* Listas con formato APA */
 .chapter-content ul,
 .chapter-content ol {
   margin-bottom: 1.5rem;
+  padding-left: 3rem; /* Ajustado para APA */
+  position: relative; /* Para elementos anidados */
+}
+
+.chapter-content.web-friendly ul,
+.chapter-content.web-friendly ol {
   padding-left: 2.5rem;
 }
 
 .chapter-content li {
   margin-bottom: 0.65rem;
+  position: relative; /* Para elementos anidados */
 }
 
+/* Énfasis */
 .chapter-content strong {
   font-weight: 700;
   color: #3b3486;
@@ -145,7 +260,177 @@
   color: #5953cd;
 }
 
-/* ========= Botón de Navegación ========= */
+/* ========= ESTILOS DE RESALTADO CORREGIDOS ========= */
+
+/* Elemento de resaltado base - CORREGIDO */
+.chapter-content .text-highlight {
+  /* Colores y apariencia */
+  background-color: rgba(255, 235, 59, 0.4) !important;
+  color: inherit !important;
+  
+  /* Espaciado y posición */
+  padding: 2px 4px !important;
+  margin: 0 1px !important;
+  border-radius: 3px !important;
+  
+  /* Efectos visuales */
+  box-shadow: 0 1px 2px rgba(255, 235, 59, 0.3) !important;
+  border: 1px solid rgba(255, 235, 59, 0.6) !important;
+  
+  /* Interacción */
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  
+  /* Posición y z-index */
+  position: relative !important;
+  z-index: 1 !important;
+  
+  /* Evitar problemas de renderizado */
+  display: inline !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  
+}
+
+/* Estado hover del resaltado */
+.chapter-content .text-highlight:hover {
+  background-color: rgba(255, 235, 59, 0.6) !important;
+  box-shadow: 0 2px 4px rgba(255, 235, 59, 0.5) !important;
+  transform: translateY(-1px) !important;
+  border-color: rgba(255, 235, 59, 0.8) !important;
+}
+
+/* Estado focus para accesibilidad */
+.chapter-content .text-highlight:focus {
+  outline: 2px solid #007bff !important;
+  outline-offset: 2px !important;
+}
+
+/* Evitar elementos anidados problemáticos */
+.chapter-content .text-highlight .text-highlight {
+  background-color: inherit !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Colores alternativos de resaltado */
+.chapter-content .text-highlight.yellow {
+  background-color: rgba(255, 235, 59, 0.4) !important;
+  border-color: rgba(255, 235, 59, 0.6) !important;
+}
+
+.chapter-content .text-highlight.blue {
+  background-color: rgba(33, 150, 243, 0.3) !important;
+  border-color: rgba(33, 150, 243, 0.5) !important;
+}
+
+.chapter-content .text-highlight.green {
+  background-color: rgba(76, 175, 80, 0.3) !important;
+  border-color: rgba(76, 175, 80, 0.5) !important;
+}
+
+.chapter-content .text-highlight.pink {
+  background-color: rgba(233, 30, 99, 0.3) !important;
+  border-color: rgba(233, 30, 99, 0.5) !important;
+}
+
+.chapter-content .text-highlight.orange {
+  background-color: rgba(255, 152, 0, 0.3) !important;
+  border-color: rgba(255, 152, 0, 0.5) !important;
+}
+
+/* Animación para nuevos resaltados */
+@keyframes highlightPulse {
+  0% {
+    transform: scale(1);
+    background-color: rgba(255, 235, 59, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    background-color: rgba(255, 235, 59, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(255, 235, 59, 0.4);
+  }
+}
+
+.chapter-content .text-highlight.new-highlight {
+  animation: highlightPulse 0.8s ease-out !important;
+}
+
+/* Selección de texto mejorada */
+.chapter-content::selection {
+  background-color: rgba(255, 235, 59, 0.3) !important;
+  color: inherit !important;
+}
+
+.chapter-content::-moz-selection {
+  background-color: rgba(255, 235, 59, 0.3) !important;
+  color: inherit !important;
+}
+
+/* ========= Toolbar de Resaltado ========= */
+.highlight-toolbar {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  margin-left: 2.5rem; /* Alineado con el contenido APA */
+  margin-right: 1.5rem;
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+}
+
+.chapter-content.web-friendly ~ .highlight-toolbar {
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+/* Instrucciones del toolbar */
+.highlight-instructions {
+  font-size: 0.875rem;
+  color: #6c757d;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-left: 4px solid #007bff;
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 15px;
+}
+
+/* Contador de resaltados */
+.highlight-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlight-count {
+  background: #007bff;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Estados de carga */
+.highlight-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.highlight-error {
+  background-color: #ffcdd2 !important;
+  color: #c62828 !important;
+  border-color: #f44336 !important;
+}
+
+/* ========= Botones de Navegación ========= */
 .chapter-nav-button {
   border: 2px solid #5953cd;
   background-color: transparent;
@@ -348,7 +633,12 @@
   color: #ffffff;
 }
 
-/* ========= Responsive ========= */
+/* ========= Estados de selección ========= */
+.chapter-content.selecting {
+  cursor: crosshair;
+}
+
+/* ========= Responsive Design ========= */
 @media (min-width: 768px) {
   .chapter-content-card {
     padding: 3rem;
@@ -361,7 +651,23 @@
   }
 
   .chapter-content {
-    font-size: 1rem !important;
+    font-size: 14px !important;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+
+  .chapter-content.web-friendly {
+    font-size: 15px !important;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+
+  .chapter-content p {
+    text-indent: 1rem;
+  }
+
+  .chapter-content.web-friendly p {
+    text-indent: 1rem;
   }
 
   .chapter-content-card {
@@ -374,6 +680,28 @@
 
   .chapter-nav-title {
     font-size: 0.9rem;
+  }
+
+  .highlight-toolbar {
+    padding: 8px;
+    margin-bottom: 15px;
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+    position: static; /* No sticky en móvil */
+  }
+  
+  .highlight-toolbar .d-flex {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chapter-content blockquote {
+    margin-left: 1.5rem;
+  }
+
+  .chapter-content ul,
+  .chapter-content ol {
+    padding-left: 2rem;
   }
 }
 
@@ -388,5 +716,53 @@
 
   .chapter-navigation {
     margin-top: 2rem;
+  }
+
+  .chapter-content {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    font-size: 14px !important;
+  }
+
+  .chapter-content.web-friendly {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+  }
+
+  .chapter-content p {
+    text-indent: 0.8rem;
+  }
+
+  .chapter-content.web-friendly p {
+    text-indent: 0.8rem;
+  }
+
+  .highlight-toolbar {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  .chapter-content blockquote {
+    margin-left: 1rem;
+  }
+
+  .chapter-content ul,
+  .chapter-content ol {
+    padding-left: 1.5rem;
+  }
+}
+
+/* Reducir animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .text-highlight {
+    transition: none !important;
+  }
+  
+  .text-highlight.new-highlight {
+    animation: none !important;
+  }
+  
+  .chapter-nav-button {
+    transition: none !important;
   }
 }
