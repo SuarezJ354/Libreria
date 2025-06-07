@@ -11,6 +11,8 @@ export default function Sidebar() {
     { to: "/dashboard/books", label: "Libros", icon: "bi-book" },
     { to: "/dashboard/create-books", label: "Añadir Libros", icon: "bi-plus-lg" },
     { to: "/", label: "Pagina Principal", icon: "bi-house" },
+    { to: "/dashboard/export", label: "Exportar a CSV", icon: "fa-regular fa-file-export" },
+    
   ];
 
   if (user?.rol === "ADMIN") {

@@ -86,9 +86,34 @@ export default function UsersPage() {
     }
   };
 
+  const exportarCSV = async () => {
+    try {
+      const response = await fetch("https://libreriabackend-production.up.railway.app/export/csv/usuarios");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "usuarios.csv";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (err) {
+      console.error("Error al exportar CSV:", err);
+    }
+  };
+
   return (
     <div className="users-container">
-      <h2 className="mb-4">Administrar Usuarios</h2>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="mb-0">Administrar Usuarios</h2>
+        <button
+          className="btn btn-success px-4 py-2 rounded-pill fw-bold shadow-sm"
+          onClick={exportarCSV}
+        >
+          Exportar CSV
+        </button>
+      </div>
       <table className="users-table">
         <thead>
           <tr>

@@ -15,6 +15,7 @@ import Books from "./Admin/pages/Books";
 import UsersPage from "./Admin/pages/UsersPage";
 import BooksByCategory from "./frontend/pages/BooksByCategory";
 import NotificationsPanel from "./Admin/components/Notifications";
+import TableDownloadButtons from "./Admin/components/TableDownloadButtons";
 
 import Login from "./frontend/pages/login";
 import Register from "./frontend/pages/Register";
@@ -61,6 +62,8 @@ function App() {
           <Route path="edit-books/:id" element={<BookForm />} />
           <Route path="books/:bookId/chapters" element={<ChapterForm/>}/>
           <Route path="notificacion" element={<NotificationsPanel/>}/>
+          <Route path="export" element={<TableDownloadButtons/>}/>
+
         </Route>
       
         
