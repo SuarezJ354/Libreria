@@ -1,0 +1,323 @@
+/* Estilos base responsivos - BooksByCategory únicos */
+body {
+  min-width: 0px;
+  min-height: 0vh;
+  display: block;
+  place-items: normal;
+}
+
+/* Container principal */
+#category-page-unique {
+  padding: 10px;
+}
+
+#container-category-unique {
+  padding: 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título de categoría */
+#category-title-unique {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Grid de libros - Mobile First */
+#book-grid-unique {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+/* Card de libro */
+.book-card-unique {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card-unique:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del libro */
+.book-image-unique {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Información del libro */
+.book-info-category-unique {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  width: 100%;
+}
+
+.book-title-category-unique {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.book-description-category-unique {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Acciones del libro */
+.book-actions-unique {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.read-more-btn-unique {
+  background-color: #f0e6fd;
+  color: #500a89;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.read-more-btn-unique:hover {
+  background-color: #500a89;
+  color: white;
+  transform: scale(1.05);
+}
+
+.heart-btn-unique {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.heart-btn-unique:hover {
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+
+/* Mensaje cuando no hay libros */
+#no-books-message-unique {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Media Queries para tablets */
+@media (min-width: 768px) {
+  #category-page-unique {
+    padding: 20px;
+  }
+  
+  #book-grid-unique {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 20px;
+  }
+  
+  .book-card-unique {
+    flex-direction: row;
+    text-align: left;
+    max-width: 100%;
+    padding: 25px;
+  }
+  
+  .book-image-unique {
+    width: 120px;
+    height: 160px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  .book-title-category-unique {
+    font-size: 20px;
+  }
+  
+  .book-description-category-unique {
+    font-size: 15px;
+    -webkit-line-clamp: 4;
+  }
+  
+  .book-actions-unique {
+    justify-content: flex-start;
+  }
+}
+
+/* Media Queries para desktop */
+@media (min-width: 1024px) {
+  #container-category-unique {
+    padding: 40px;
+  }
+  
+  #book-grid-unique {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .book-card-unique {
+    max-width: 480px;
+    padding: 30px;
+  }
+  
+  .book-image-unique {
+    width: 140px;
+    height: 180px;
+  }
+  
+  #category-title-unique {
+    font-size: 28px;
+  }
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 1400px) {
+  #book-grid-unique {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Estilos para el sidebar (mantenidos del CSS original con IDs únicos) */
+#sidebar-category-unique {
+  width: 222px;
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+  position: relative;
+  padding: 20px;
+}
+
+#sidebar-title-category-unique {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#sidebar-subtitle-category-unique {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.sidebar-dashboard-category-unique .custom-link-category-unique {
+  color: white !important;
+}
+
+.custom-link-category-unique {
+  color: #6a0dad !important;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-link-category-unique:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #9b79c2;
+}
+
+.active-links-category-unique {
+  background-color: #6a0dad !important;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Filtros de categoría */
+#category-filter-unique {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn-unique {
+  color: #500a89;
+  font-size: 15px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 5px;
+}
+
+.filter-btn-unique.active {
+  background-color: #6a0dad;
+  color: white;
+}
+
+.filter-btn-unique:hover {
+  background-color: #500a89;
+  color: white;
+}
+
+/* Responsivo para el sidebar en móvil */
+@media (max-width: 768px) {
+  #sidebar-category-unique {
+    width: 100%;
+    min-height: auto;
+    padding: 15px;
+  }
+  
+  #category-filter-unique {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn-unique {
+    width: 100%;
+    max-width: 200px;
+  }
+}

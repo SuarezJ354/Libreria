@@ -1,0 +1,10 @@
+.main-content {
+  margin-left: 222px;
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}

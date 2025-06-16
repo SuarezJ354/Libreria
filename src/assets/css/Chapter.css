@@ -1,768 +1,837 @@
-/* ===============================
-   ChapterReader.css (Corregido - Resaltado Optimizado)
-   =============================== */
+/* ChapterMobile.css - Mobile First Responsive con IDs únicos */
 
-/* ========= Layout Principal ========= */
-.chapter-reader-container {
-  background-color: #f8f9fa;
+/* ========= MOBILE FIRST BASE STYLES ========= */
+#chapter-reader-page-unique {
+  background-color: #fafafa;
   min-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
-/* ========= Header ========= */
-.chapter-header {
+/* ========= HEADER MÓVIL ========= */
+#chapter-header-unique {
   background-color: white;
-  box-shadow: 0 2px 6px rgba(89, 83, 205, 0.15);
+  box-shadow: 0 2px 8px rgba(106, 13, 173, 0.15);
+  position: sticky;
   top: 0;
-  z-index: 1020;
+  z-index: 1000;
+  padding: 10px 0;
 }
 
-.chapter-header .container {
-  padding: 1rem 0;
+#chapter-header-container-unique {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-/* Navegación del Header */
-.chapter-nav-buttons .btn {
-  font-size: 0.875rem;
+#chapter-header-content-unique {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Color texto de progreso */
-.chapter-progress {
-  font-size: 0.875rem;
-  color: #6c757d;
+#chapter-back-btn-container-unique {
+  flex-shrink: 0;
 }
 
-/* ========= Badges ========= */
-.chapter-badge-free {
-  background-color: #28a745 !important;
+#chapter-back-btn-unique {
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
 }
 
-.chapter-badge-premium {
-  background-color: #ffc107 !important;
-  color: #212529 !important;
+#chapter-back-btn-unique:hover {
+  background: linear-gradient(135deg, #500a89, #3d0866);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
-/* ========= Contenido Principal ========= */
-.chapter-main-content {
-  padding: 3rem 0;
+#chapter-back-btn-unique span {
+  display: none;
 }
 
-/* Título del Capítulo */
-.chapter-title-section {
+#chapter-nav-center-unique {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#chapter-nav-buttons-unique {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+#chapter-prev-btn-unique,
+#chapter-next-btn-unique {
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 50%;
+  font-size: 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s ease;
+}
+
+#chapter-prev-btn-unique:hover,
+#chapter-next-btn-unique:hover {
+  background: linear-gradient(135deg, #500a89, #3d0866);
+  color: white;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+#chapter-progress-unique {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6a0dad;
+  min-width: 60px;
   text-align: center;
-  margin-bottom: 3rem;
 }
 
-.chapter-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5953cd;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+#chapter-badge-container-unique {
+  flex-shrink: 0;
 }
 
-.chapter-title-divider {
-  width: 80px;
-  height: 4px;
-  background-color: #5953cd;
+#chapter-badge-free-unique,
+#chapter-badge-premium-unique {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+#chapter-badge-free-unique {
+  background-color: #28a745;
+  color: white;
+}
+
+#chapter-badge-premium-unique {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+#chapter-badge-free-unique span,
+#chapter-badge-premium-unique span {
+  display: none;
+}
+
+/* ========= CONTENIDO PRINCIPAL MÓVIL ========= */
+#chapter-main-container-unique {
+  padding: 20px 15px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#chapter-content-wrapper-unique {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* ========= TÍTULO MÓVIL ========= */
+#chapter-title-section-unique {
+  text-align: center;
+  padding: 20px 15px;
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+}
+
+#chapter-title-unique {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+#chapter-title-divider-unique {
+  width: 60px;
+  height: 3px;
+  background-color: white;
   border: none;
   margin: 0 auto;
   border-radius: 2px;
 }
 
-/* ========= Tarjeta de Contenido ========= */
-.chapter-content-card {
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(89, 83, 205, 0.15);
-  padding: 2.5rem;
-  transition: box-shadow 0.3s ease;
+/* ========= TOOLBAR DE RESALTADO MÓVIL ========= */
+#chapter-highlight-toolbar-unique {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px 15px;
 }
 
-.chapter-content-card:hover {
-  box-shadow: 0 6px 18px rgba(89, 83, 205, 0.25);
+#chapter-highlight-toolbar-content-unique {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* ========= Contenido del Capítulo con Formato APA ========= */
-.chapter-content {
-  /* Espaciado y márgenes APA */
-  padding-left: 2.5rem;
-  padding-right: 1.5rem;
-  line-height: 2; /* Doble espaciado APA */
-  
-  /* Tipografía APA base */
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 14pt;
-  color: #2c3e50;
+#chapter-highlight-instructions-unique {
+  font-size: 12px;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#chapter-highlight-instructions-unique i {
+  color: #6a0dad;
+}
+
+#chapter-highlight-stats-unique {
+  align-self: flex-end;
+}
+
+#chapter-highlight-count-unique {
+  background: #6a0dad;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ========= CONTENIDO DEL CAPÍTULO MÓVIL ========= */
+#chapter-content-card-unique {
+  padding: 20px 15px;
+}
+
+#chapter-content-text-unique {
+  /* Tipografía optimizada para móvil */
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
   text-align: justify;
+  
+  /* Espaciado */
+  margin-bottom: 20px;
   
   /* Propiedades de selección */
   white-space: pre-line;
   user-select: text;
   cursor: text;
   
-  /* Posición relativa para elementos resaltados */
-  position: relative;
+  /* Scroll suave */
+  scroll-behavior: smooth;
 }
 
-/* Versión web-friendly del contenido APA */
-.chapter-content.web-friendly {
-  padding-left: 2rem;
-  padding-right: 1rem;
-  line-height: 1.8; /* Espaciado más cómodo para web */
+/* Párrafos */
+#chapter-content-text-unique p {
+  margin-bottom: 16px;
+  text-indent: 20px;
+}
+
+#chapter-content-text-unique p:first-child {
+  text-indent: 0;
+}
+
+/* Encabezados */
+#chapter-content-text-unique h1,
+#chapter-content-text-unique h2,
+#chapter-content-text-unique h3,
+#chapter-content-text-unique h4,
+#chapter-content-text-unique h5,
+#chapter-content-text-unique h6 {
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 16px; /* Más legible en pantalla */
-  color: #2c3e50;
-}
-
-/* Párrafos con formato APA */
-.chapter-content p {
-  margin-bottom: 0; /* Sin espacio extra entre párrafos en APA estricto */
-  text-indent: 0.5in; /* Sangría de primera línea APA */
-  text-align: justify;
-  position: relative; /* Para elementos anidados */
-}
-
-.chapter-content.web-friendly p {
-  margin-bottom: 0.5rem;
-  text-indent: 1.5rem; /* Sangría más sutil para web */
-}
-
-/* Primer párrafo sin sangría */
-.chapter-content p:first-child {
-  text-indent: 0;
-}
-
-/* Párrafos después de encabezados sin sangría */
-.chapter-content h1 + p, 
-.chapter-content h2 + p, 
-.chapter-content h3 + p, 
-.chapter-content h4 + p, 
-.chapter-content h5 + p, 
-.chapter-content h6 + p {
-  text-indent: 0;
-}
-
-/* Encabezados con formato APA */
-.chapter-content h1,
-.chapter-content h2,
-.chapter-content h3,
-.chapter-content h4,
-.chapter-content h5,
-.chapter-content h6 {
-  font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 2;
-  color: #3b3486;
-  position: relative; /* Para elementos anidados */
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: #6a0dad;
 }
 
-.chapter-content h1 {
-  text-align: center;
-  font-size: 12pt;
+#chapter-content-text-unique h1 { font-size: 20px; }
+#chapter-content-text-unique h2 { font-size: 18px; }
+#chapter-content-text-unique h3 { font-size: 17px; }
+#chapter-content-text-unique h4 { font-size: 16px; }
+
+/* Listas */
+#chapter-content-text-unique ul,
+#chapter-content-text-unique ol {
+  margin-bottom: 16px;
+  padding-left: 25px;
 }
 
-.chapter-content h2 {
-  text-align: center;
-  font-size: 12pt;
+#chapter-content-text-unique li {
+  margin-bottom: 8px;
 }
 
-.chapter-content h3 {
-  text-align: left;
-  font-size: 12pt;
-}
-
-.chapter-content h4 {
-  text-align: left;
-  font-size: 12pt;
+/* Blockquotes */
+#chapter-content-text-unique blockquote {
+  border-left: 4px solid #6a0dad;
+  background-color: #f8f9ff;
+  padding: 15px;
+  margin: 16px 0;
+  border-radius: 8px;
   font-style: italic;
+  color: #555;
 }
 
-.chapter-content h5 {
-  text-align: left;
-  font-size: 12pt;
-  font-style: italic;
-  text-indent: 0.5in;
-}
-
-/* Versión web-friendly de encabezados */
-.chapter-content.web-friendly h1,
-.chapter-content.web-friendly h2,
-.chapter-content.web-friendly h3,
-.chapter-content.web-friendly h4,
-.chapter-content.web-friendly h5,
-.chapter-content.web-friendly h6 {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 1.25rem;
-}
-
-.chapter-content.web-friendly h1 {
-  font-size: 1.75rem;
-}
-
-.chapter-content.web-friendly h2 {
-  font-size: 1.5rem;
-}
-
-/* Blockquotes manteniendo el estilo original */
-.chapter-content blockquote {
-  border-left: 5px solid #5953cd;
-  background-color: #f0f0ff;
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-  margin-left: 2.5rem; /* Alineado con el contenido */
-  border-radius: 0.5rem;
-  font-style: italic;
-  color: #4a4a6a;
-  position: relative; /* Para elementos anidados */
-}
-
-.chapter-content.web-friendly blockquote {
-  margin-left: 2rem;
-}
-
-/* Imágenes */
-.chapter-content img {
-  max-width: 100%;
-  height: auto;
-  margin: 1.5rem 0;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(89, 83, 205, 0.1);
-}
-
-/* Listas con formato APA */
-.chapter-content ul,
-.chapter-content ol {
-  margin-bottom: 1.5rem;
-  padding-left: 3rem; /* Ajustado para APA */
-  position: relative; /* Para elementos anidados */
-}
-
-.chapter-content.web-friendly ul,
-.chapter-content.web-friendly ol {
-  padding-left: 2.5rem;
-}
-
-.chapter-content li {
-  margin-bottom: 0.65rem;
-  position: relative; /* Para elementos anidados */
-}
-
-/* Énfasis */
-.chapter-content strong {
-  font-weight: 700;
-  color: #3b3486;
-}
-
-.chapter-content em {
-  font-style: italic;
-  color: #5953cd;
-}
-
-/* ========= ESTILOS DE RESALTADO CORREGIDOS ========= */
-
-/* Elemento de resaltado base - CORREGIDO */
-.chapter-content .text-highlight {
-  /* Colores y apariencia */
+/* ========= RESALTADOS MÓVIL ========= */
+.text-highlight-mobile-unique {
   background-color: rgba(255, 235, 59, 0.4) !important;
   color: inherit !important;
-  
-  /* Espaciado y posición */
   padding: 2px 4px !important;
   margin: 0 1px !important;
   border-radius: 3px !important;
-  
-  /* Efectos visuales */
   box-shadow: 0 1px 2px rgba(255, 235, 59, 0.3) !important;
   border: 1px solid rgba(255, 235, 59, 0.6) !important;
-  
-  /* Interacción */
   cursor: pointer !important;
-  transition: all 0.2s ease-in-out !important;
-  
-  /* Posición y z-index */
+  transition: all 0.2s ease !important;
   position: relative !important;
   z-index: 1 !important;
-  
-  /* Evitar problemas de renderizado */
   display: inline !important;
   white-space: normal !important;
   word-break: normal !important;
-  
 }
 
-/* Estado hover del resaltado */
-.chapter-content .text-highlight:hover {
+.text-highlight-mobile-unique:hover {
   background-color: rgba(255, 235, 59, 0.6) !important;
   box-shadow: 0 2px 4px rgba(255, 235, 59, 0.5) !important;
   transform: translateY(-1px) !important;
-  border-color: rgba(255, 235, 59, 0.8) !important;
 }
 
-/* Estado focus para accesibilidad */
-.chapter-content .text-highlight:focus {
-  outline: 2px solid #007bff !important;
-  outline-offset: 2px !important;
+/* ========= CONTENIDO PREMIUM MÓVIL ========= */
+#chapter-premium-content-unique {
+  padding: 20px 15px;
 }
 
-/* Evitar elementos anidados problemáticos */
-.chapter-content .text-highlight .text-highlight {
-  background-color: inherit !important;
-  box-shadow: none !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+#chapter-premium-card-unique {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
 }
 
-/* Colores alternativos de resaltado */
-.chapter-content .text-highlight.yellow {
-  background-color: rgba(255, 235, 59, 0.4) !important;
-  border-color: rgba(255, 235, 59, 0.6) !important;
-}
-
-.chapter-content .text-highlight.blue {
-  background-color: rgba(33, 150, 243, 0.3) !important;
-  border-color: rgba(33, 150, 243, 0.5) !important;
-}
-
-.chapter-content .text-highlight.green {
-  background-color: rgba(76, 175, 80, 0.3) !important;
-  border-color: rgba(76, 175, 80, 0.5) !important;
-}
-
-.chapter-content .text-highlight.pink {
-  background-color: rgba(233, 30, 99, 0.3) !important;
-  border-color: rgba(233, 30, 99, 0.5) !important;
-}
-
-.chapter-content .text-highlight.orange {
-  background-color: rgba(255, 152, 0, 0.3) !important;
-  border-color: rgba(255, 152, 0, 0.5) !important;
-}
-
-/* Animación para nuevos resaltados */
-@keyframes highlightPulse {
-  0% {
-    transform: scale(1);
-    background-color: rgba(255, 235, 59, 0.4);
-  }
-  50% {
-    transform: scale(1.02);
-    background-color: rgba(255, 235, 59, 0.7);
-  }
-  100% {
-    transform: scale(1);
-    background-color: rgba(255, 235, 59, 0.4);
-  }
-}
-
-.chapter-content .text-highlight.new-highlight {
-  animation: highlightPulse 0.8s ease-out !important;
-}
-
-/* Selección de texto mejorada */
-.chapter-content::selection {
-  background-color: rgba(255, 235, 59, 0.3) !important;
-  color: inherit !important;
-}
-
-.chapter-content::-moz-selection {
-  background-color: rgba(255, 235, 59, 0.3) !important;
-  color: inherit !important;
-}
-
-/* ========= Toolbar de Resaltado ========= */
-.highlight-toolbar {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  padding: 12px;
+#chapter-premium-icon-unique {
+  font-size: 40px;
+  color: #ffc107;
   margin-bottom: 20px;
-  margin-left: 2.5rem; /* Alineado con el contenido APA */
-  margin-right: 1.5rem;
-  position: sticky;
-  top: 80px;
-  z-index: 10;
 }
 
-.chapter-content.web-friendly ~ .highlight-toolbar {
-  margin-left: 2rem;
-  margin-right: 1rem;
-}
-
-/* Instrucciones del toolbar */
-.highlight-instructions {
-  font-size: 0.875rem;
-  color: #6c757d;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  border-left: 4px solid #007bff;
-  padding: 8px 12px;
-  border-radius: 0 6px 6px 0;
+#chapter-premium-title-unique {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6a0dad;
   margin-bottom: 15px;
 }
 
-/* Contador de resaltados */
-.highlight-stats {
+#chapter-premium-description-unique {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+#chapter-premium-download-unique {
+  margin-bottom: 20px;
+}
+
+#chapter-premium-guarantee-unique {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+#chapter-premium-guarantee-unique i {
+  color: #28a745;
+}
+
+/* ========= NAVEGACIÓN ENTRE CAPÍTULOS MÓVIL ========= */
+#chapter-navigation-unique {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  border-top: 1px solid #e0e0e0;
+  background: white;
+  gap: 15px;
+}
+
+#chapter-nav-prev-unique,
+#chapter-nav-next-unique {
+  flex: 1;
+  max-width: 45%;
+}
+
+#chapter-nav-prev-link-unique,
+#chapter-nav-next-link-unique {
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
-.highlight-count {
-  background: #007bff;
+#chapter-nav-prev-link-unique:hover,
+#chapter-nav-next-link-unique:hover {
+  background: linear-gradient(135deg, #500a89, #3d0866);
   color: white;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-/* Estados de carga */
-.highlight-loading {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.highlight-error {
-  background-color: #ffcdd2 !important;
-  color: #c62828 !important;
-  border-color: #f44336 !important;
-}
-
-/* ========= Botones de Navegación ========= */
-.chapter-nav-button {
-  border: 2px solid #5953cd;
-  background-color: transparent;
-  color: #5953cd;
-  padding: 0.6rem 1.25rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease-in-out;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
 }
 
-.chapter-nav-button:hover {
-  background-color: #5953cd;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(89, 83, 205, 0.4);
+#chapter-nav-prev-info-unique,
+#chapter-nav-next-info-unique {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
 }
 
-/* ========= Navegación entre Capítulos ========= */
-.chapter-navigation {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid #ddd;
+#chapter-nav-next-info-unique {
+  align-items: flex-end;
 }
 
-.chapter-nav-info {
-  display: inline-block;
-}
-
-.chapter-nav-info.text-start {
-  text-align: left !important;
-}
-
-.chapter-nav-info.text-end {
-  text-align: right !important;
-}
-
-.chapter-nav-label {
-  display: block;
-  font-size: 0.875rem;
-  color: #6c757d;
-  letter-spacing: 0.03em;
+#chapter-nav-prev-info-unique small,
+#chapter-nav-next-info-unique small {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#chapter-nav-prev-info-unique span,
+#chapter-nav-next-info-unique span {
+  font-size: 12px;
   font-weight: 600;
-}
-
-.chapter-nav-title {
-  font-weight: 700;
-  color: #5953cd;
-  font-size: 1.1rem;
-}
-
-/* ========= Contenido Premium ========= */
-.premium-content-card {
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 15px rgba(89, 83, 205, 0.15);
-  padding: 3rem 2.5rem;
-  text-align: center;
-  transition: box-shadow 0.3s ease;
-}
-
-.premium-content-card:hover {
-  box-shadow: 0 6px 20px rgba(89, 83, 205, 0.25);
-}
-
-.premium-lock-icon {
-  font-size: 3.5rem;
-  color: #ffc107;
-  margin-bottom: 2.5rem;
-}
-
-.premium-title {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #3b3486;
-  font-weight: 700;
-}
-
-.premium-description {
-  color: #6c757d;
-  margin-bottom: 1.25rem;
-  font-size: 1.125rem;
-}
-
-.premium-price-card {
-  background-color: #f0f0ff;
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 2.5rem;
-  border: 1px solid #5953cd;
-}
-
-.premium-price {
-  color: #5953cd;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.premium-access-note {
-  font-size: 0.9rem;
-  color: #6c757d;
-  font-style: italic;
-}
-
-.premium-buy-button {
-  font-size: 1.25rem;
-  padding: 0.85rem 2.25rem;
-  background-color: #5953cd;
-  border: none;
   color: white;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+  line-height: 1.2;
 }
 
-.premium-buy-button:hover {
-  background-color: #483f9a;
-}
-
-.premium-guarantee {
-  margin-top: 1.25rem;
-  font-size: 0.875rem;
-  color: #6c757d;
-}
-
-/* ========= Estados de Carga ========= */
-.loading-container,
-.error-container {
+/* ========= ESTADOS DE CARGA MÓVIL ========= */
+#chapter-loading-container-unique {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
+  background-color: #fafafa;
+  padding: 20px;
 }
 
-.loading-content,
-.error-content {
+#chapter-loading-content-unique {
   text-align: center;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.loading-spinner {
-  color: #5953cd;
-  margin-bottom: 1rem;
-  font-size: 2.5rem;
+#chapter-loading-spinner-unique {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #6a0dad;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px auto;
 }
 
-.loading-text,
-.error-title {
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#chapter-loading-text-unique {
   color: #6c757d;
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0;
 }
 
-/* ========= Íconos Personalizados ========= */
-.mi-icono {
-  color: #5953cd; 
-  font-size: 22px;
+/* ========= ESTADOS DE ERROR MÓVIL ========= */
+#chapter-error-container-unique {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 20px;
 }
 
-.btn-morado {
-  border-color: #5953cd;
-  color: #5953cd;
-  background-color: transparent;
+#chapter-error-content-unique {
+  text-align: center;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#chapter-error-title-unique {
+  color: #6a0dad;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#chapter-error-back-btn-unique {
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   transition: all 0.3s ease;
 }
 
-.btn-morado i {
-  color: #5953cd;
-  transition: color 0.3s ease;
+#chapter-error-back-btn-unique:hover {
+  background: linear-gradient(135deg, #500a89, #3d0866);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
-.btn-morado:hover {
-  background-color: #5953cd;
-  color: #ffffff;
-}
+/* ========= RESPONSIVE DESIGN ========= */
 
-.btn-morado:hover i {
-  color: #ffffff;
-}
-
-/* Ícono morado por defecto */
-.chapter-nav-button .mi-icono {
-  color: #5953cd;
-  transition: color 0.3s ease;
-}
-
-/* Al pasar el mouse, fondo morado e ícono blanco */
-.chapter-nav-button:hover {
-  background-color: #5953cd;
-  color: #ffffff;
-}
-
-.chapter-nav-button:hover .mi-icono {
-  color: #ffffff;
-}
-
-/* ========= Estados de selección ========= */
-.chapter-content.selecting {
-  cursor: crosshair;
-}
-
-/* ========= Responsive Design ========= */
+/* Tablet (768px - 1024px) */
 @media (min-width: 768px) {
-  .chapter-content-card {
-    padding: 3rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .chapter-title {
-    font-size: 2rem;
-  }
-
-  .chapter-content {
-    font-size: 14px !important;
-    padding-left: 1.5rem;
-    padding-right: 1rem;
-  }
-
-  .chapter-content.web-friendly {
-    font-size: 15px !important;
-    padding-left: 1.5rem;
-    padding-right: 1rem;
-  }
-
-  .chapter-content p {
-    text-indent: 1rem;
-  }
-
-  .chapter-content.web-friendly p {
-    text-indent: 1rem;
-  }
-
-  .chapter-content-card {
-    padding: 1.5rem;
-  }
-
-  .premium-content-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .chapter-nav-title {
-    font-size: 0.9rem;
-  }
-
-  .highlight-toolbar {
-    padding: 8px;
-    margin-bottom: 15px;
-    margin-left: 1.5rem;
-    margin-right: 1rem;
-    position: static; /* No sticky en móvil */
+  #chapter-header-container-unique {
+    padding: 0 30px;
   }
   
-  .highlight-toolbar .d-flex {
-    flex-direction: column;
-    gap: 8px;
+  #chapter-back-btn-unique span {
+    display: inline;
   }
-
-  .chapter-content blockquote {
-    margin-left: 1.5rem;
+  
+  #chapter-badge-free-unique span,
+  #chapter-badge-premium-unique span {
+    display: inline;
   }
-
-  .chapter-content ul,
-  .chapter-content ol {
-    padding-left: 2rem;
+  
+  #chapter-main-container-unique {
+    padding: 30px;
+  }
+  
+  #chapter-content-card-unique {
+    padding: 30px;
+  }
+  
+  #chapter-content-text-unique {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  
+  #chapter-title-unique {
+    font-size: 22px;
+  }
+  
+  #chapter-highlight-toolbar-content-unique {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #chapter-highlight-instructions-unique {
+    font-size: 14px;
+  }
+  
+  #chapter-nav-prev-link-unique,
+  #chapter-nav-next-link-unique {
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+  
+  #chapter-nav-prev-info-unique small,
+  #chapter-nav-next-info-unique small {
+    font-size: 11px;
+  }
+  
+  #chapter-nav-prev-info-unique span,
+  #chapter-nav-next-info-unique span {
+    font-size: 14px;
+  }
+  
+  #chapter-premium-card-unique {
+    padding: 40px 30px;
+  }
+  
+  #chapter-premium-title-unique {
+    font-size: 24px;
+  }
+  
+  #chapter-premium-description-unique {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 575px) {
-  .chapter-main-content {
-    padding: 2rem 0;
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  #chapter-header-container-unique {
+    max-width: 1200px;
+    padding: 0 40px;
   }
-
-  .chapter-title-section {
-    margin-bottom: 2rem;
+  
+  #chapter-main-container-unique {
+    max-width: 1200px;
+    padding: 40px;
   }
-
-  .chapter-navigation {
-    margin-top: 2rem;
+  
+  #chapter-content-wrapper-unique {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   }
-
-  .chapter-content {
-    padding-left: 1rem;
-    padding-right: 0.5rem;
-    font-size: 14px !important;
+  
+  #chapter-content-card-unique {
+    padding: 40px;
   }
-
-  .chapter-content.web-friendly {
-    padding-left: 1rem;
-    padding-right: 0.5rem;
+  
+  #chapter-content-text-unique {
+    font-size: 18px;
+    line-height: 1.9;
   }
-
-  .chapter-content p {
-    text-indent: 0.8rem;
+  
+  #chapter-title-unique {
+    font-size: 26px;
   }
-
-  .chapter-content.web-friendly p {
-    text-indent: 0.8rem;
+  
+  #chapter-navigation-unique {
+    padding: 30px 40px;
   }
-
-  .highlight-toolbar {
-    margin-left: 1rem;
-    margin-right: 0.5rem;
+  
+  #chapter-nav-prev-unique,
+  #chapter-nav-next-unique {
+    max-width: 40%;
   }
-
-  .chapter-content blockquote {
-    margin-left: 1rem;
+  
+  #chapter-premium-card-unique {
+    padding: 50px 40px;
+    max-width: 600px;
+    margin: 0 auto;
   }
+  
+  #chapter-premium-icon-unique {
+    font-size: 50px;
+  }
+  
+  #chapter-premium-title-unique {
+    font-size: 28px;
+  }
+  
+  #chapter-premium-description-unique {
+    font-size: 17px;
+  }
+}
 
-  .chapter-content ul,
-  .chapter-content ol {
-    padding-left: 1.5rem;
+/* Pantallas muy grandes (1400px+) */
+@media (min-width: 1400px) {
+  #chapter-header-container-unique,
+  #chapter-main-container-unique {
+    max-width: 1400px;
+  }
+  
+  #chapter-content-text-unique {
+    font-size: 19px;
+    line-height: 2;
+  }
+  
+  #chapter-title-unique {
+    font-size: 30px;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  #chapter-header-unique {
+    padding: 8px 0;
+  }
+  
+  #chapter-header-container-unique {
+    padding: 0 10px;
+  }
+  
+  #chapter-back-btn-unique {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  #chapter-progress-unique {
+    font-size: 11px;
+    min-width: 50px;
+  }
+  
+  #chapter-prev-btn-unique,
+  #chapter-next-btn-unique {
+    width: 26px;
+    height: 26px;
+    font-size: 9px;
+  }
+  
+  #chapter-main-container-unique {
+    padding: 15px 10px;
+  }
+  
+  #chapter-content-card-unique {
+    padding: 15px 10px;
+  }
+  
+  #chapter-content-text-unique {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  #chapter-content-text-unique p {
+    text-indent: 15px;
+  }
+  
+  #chapter-title-section-unique {
+    padding: 15px 10px;
+  }
+  
+  #chapter-title-unique {
+    font-size: 16px;
+  }
+  
+  #chapter-highlight-toolbar-unique {
+    padding: 8px 10px;
+  }
+  
+  #chapter-navigation-unique {
+    padding: 15px 10px;
+    gap: 10px;
+  }
+  
+  #chapter-nav-prev-link-unique,
+  #chapter-nav-next-link-unique {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+  
+  #chapter-nav-prev-info-unique span,
+  #chapter-nav-next-info-unique span {
+    font-size: 11px;
+  }
+  
+  #chapter-premium-card-unique {
+    padding: 25px 15px;
+  }
+  
+  #chapter-premium-icon-unique {
+    font-size: 35px;
+  }
+  
+  #chapter-premium-title-unique {
+    font-size: 18px;
+  }
+  
+  #chapter-premium-description-unique {
+    font-size: 13px;
+  }
+}
+
+/* Ajustes para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  #chapter-reader-page-unique {
+    background-color: #1a1a1a;
+  }
+  
+  #chapter-header-unique {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  #chapter-content-wrapper-unique {
+    background: #2d2d2d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  #chapter-content-text-unique {
+    color: #e0e0e0;
+  }
+  
+  #chapter-highlight-toolbar-unique {
+    background-color: #3a3a3a;
+    border-bottom-color: #4a4a4a;
+  }
+  
+  #chapter-highlight-instructions-unique {
+    color: #b0b0b0;
+  }
+  
+  #chapter-loading-content-unique,
+  #chapter-error-content-unique {
+    background: #2d2d2d;
+  }
+  
+  #chapter-premium-card-unique {
+    background: #2d2d2d;
+    border-color: #4a4a4a;
+  }
+  
+  #chapter-premium-description-unique {
+    color: #b0b0b0;
   }
 }
 
 /* Reducir animaciones si el usuario lo prefiere */
 @media (prefers-reduced-motion: reduce) {
-  .text-highlight {
+  .text-highlight-mobile-unique {
     transition: none !important;
   }
   
-  .text-highlight.new-highlight {
+  #chapter-loading-spinner-unique {
     animation: none !important;
   }
   
-  .chapter-nav-button {
+  #chapter-back-btn-unique,
+  #chapter-prev-btn-unique,
+  #chapter-next-btn-unique,
+  #chapter-nav-prev-link-unique,
+  #chapter-nav-next-link-unique,
+  #chapter-error-back-btn-unique {
     transition: none !important;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-high-contrast: high) {
+  .text-highlight-mobile-unique {
+    border-width: 2px !important;
+    box-shadow: none !important;
+  }
+  
+  #chapter-back-btn-unique,
+  #chapter-prev-btn-unique,
+  #chapter-next-btn-unique,
+  #chapter-nav-prev-link-unique,
+  #chapter-nav-next-link-unique {
+    border: 2px solid white;
   }
 }

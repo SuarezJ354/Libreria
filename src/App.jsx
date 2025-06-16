@@ -43,7 +43,7 @@ function App() {
           <Route path="books/category/:categoria" element={<BooksByCategory />} />
           <Route path="messages" element={<Messages/>}/>
           <Route path="/search" element={<SearchResults />} />
-        </Route>
+        </Route> 
 
         {/* Rutas de autenticación sin layout específico */}
         <Route path="login" element={<Login/>}/>

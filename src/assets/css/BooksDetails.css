@@ -1,0 +1,458 @@
+/* Estilos para la página de detalles del libro - Mobile First - IDs únicos */
+#book-details-page-unique {
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 15px 10px;
+}
+
+#container-unique {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del libro */
+#book-title-unique {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Contenedor de la imagen de portada */
+#book-cover-container-unique {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#book-cover-unique {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+#book-cover-unique:hover {
+  transform: scale(1.02);
+}
+
+/* Información del libro */
+#book-info-unique {
+  margin-bottom: 30px;
+}
+
+.book-info-item-unique {
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #6a0dad;
+}
+
+.book-info-label-unique {
+  font-weight: 600;
+  color: #500a89;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.book-info-value-unique {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Descripción especial */
+#book-description-unique {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+#book-description-unique h4 {
+  color: #500a89;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+#book-description-unique p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Sección de capítulos */
+#chapters-section-unique {
+  margin-top: 30px;
+}
+
+#chapters-title-unique {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+  border-radius: 12px;
+}
+
+#chapters-count-unique {
+  font-size: 14px;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+/* Lista de capítulos */
+#chapters-list-unique {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chapter-item-unique {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.chapter-item-unique:hover {
+  border-color: #6a0dad;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 15px rgba(106, 13, 173, 0.15);
+}
+
+.chapter-info-unique {
+  flex: 1;
+}
+
+.chapter-title-unique {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.chapter-badges-unique {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.badge-unique {
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-free-unique {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge-paid-unique {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Botón de leer */
+.read-button-unique {
+  background: linear-gradient(135deg, #6a0dad, #500a89);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.read-button-unique:hover {
+  background: linear-gradient(135deg, #500a89, #3d0866);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 15px rgba(106, 13, 173, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.read-button-unique:active {
+  transform: translateY(0px);
+}
+
+/* Mensaje cuando no hay capítulos */
+#no-chapters-message-unique {
+  text-align: center;
+  padding: 40px 20px;
+  background: white;
+  border: 2px dashed #ddd;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+#no-chapters-message-unique p {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Estados de carga */
+#loading-message-unique, #error-message-unique {
+  text-align: center;
+  padding: 60px 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+#loading-message-unique p, #error-message-unique p {
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+}
+
+#error-message-unique p {
+  color: #dc3545;
+}
+
+/* Media Queries para tablets */
+@media (min-width: 768px) {
+  #book-details-page-unique {
+    padding: 30px 20px;
+  }
+  
+  #container-unique {
+    padding: 40px 30px;
+  }
+  
+  #book-title-unique {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  #book-cover-unique {
+    max-width: 250px;
+  }
+  
+  .book-info-item-unique {
+    padding: 15px 20px;
+  }
+  
+  .book-info-label-unique {
+    font-size: 15px;
+  }
+  
+  .book-info-value-unique {
+    font-size: 16px;
+  }
+  
+  #book-description-unique {
+    padding: 25px;
+  }
+  
+  #book-description-unique h4 {
+    font-size: 18px;
+  }
+  
+  #book-description-unique p {
+    font-size: 15px;
+  }
+  
+  #chapters-title-unique {
+    font-size: 22px;
+  }
+  
+  .chapter-item-unique {
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .chapter-title-unique {
+    font-size: 16px;
+  }
+  
+  .read-button-unique {
+    width: auto;
+    min-width: 100px;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Media Queries para desktop */
+@media (min-width: 1024px) {
+  #container-unique {
+    padding: 50px 40px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  
+  #book-main-info-unique {
+    grid-column: 1;
+  }
+  
+  #book-content-unique {
+    grid-column: 2;
+  }
+  
+  #book-title-unique {
+    font-size: 32px;
+    text-align: left;
+  }
+  
+  #book-cover-container-unique {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  
+  #book-cover-unique {
+    max-width: 280px;
+  }
+  
+  #chapters-title-unique {
+    font-size: 24px;
+    text-align: left;
+  }
+  
+  .chapter-item-unique {
+    padding: 25px;
+  }
+  
+  .chapter-title-unique {
+    font-size: 17px;
+  }
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 1400px) {
+  #container-unique {
+    max-width: 1400px;
+    grid-template-columns: 350px 1fr;
+    gap: 50px;
+  }
+  
+  #book-cover-unique {
+    max-width: 320px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn-unique {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#container-unique > * {
+  animation: fadeIn-unique 0.6s ease forwards;
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .chapter-item-unique,
+  .read-button-unique,
+  #book-cover-unique {
+    transition: none;
+  }
+  
+  .chapter-item-unique:hover,
+  .read-button-unique:hover,
+  #book-cover-unique:hover {
+    transform: none;
+  }
+  
+  #container-unique > * {
+    animation: none;
+  }
+}
+
+/* Focus states para navegación por teclado */
+.read-button-unique:focus {
+  outline: 2px solid #6a0dad;
+  outline-offset: 2px;
+}
+
+/* Estilos específicos para dispositivos móviles muy pequeños */
+@media (max-width: 480px) {
+  #book-details-page-unique {
+    padding: 10px 5px;
+  }
+  
+  #container-unique {
+    padding: 15px 10px;
+    margin: 0 5px;
+  }
+  
+  #book-title-unique {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  #book-cover-unique {
+    max-width: 180px;
+  }
+  
+  .book-info-item-unique {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+  
+  #book-description-unique {
+    padding: 15px;
+  }
+  
+  #chapters-title-unique {
+    font-size: 16px;
+    padding: 12px;
+  }
+  
+  .chapter-item-unique {
+    padding: 12px;
+  }
+  
+  .chapter-title-unique {
+    font-size: 13px;
+  }
+  
+  .read-button-unique {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}

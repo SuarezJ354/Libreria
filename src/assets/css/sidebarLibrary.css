@@ -1,193 +1,338 @@
-body{
-    min-width: 0px;
-    min-height: 0vh;
-    display: block;
-    place-items: normal;
+/* CSS Responsive para SidebarLibrary */
+
+/* Estilos base del sidebar */
+#accordionSidebar {
+  width: 222px;
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease, width 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  /* Removido position: fixed para pantallas grandes */
 }
 
-/* Estilos generales del Sidebar */
-  .sidebar {
-    width: 222px;
-    min-height: 100vh;
-    background-color: white;
-    color: black;
-    position: relative;
+/* Para pantallas móviles y tabletas, mantener position fixed */
+@media (max-width: 768px) {
+  #accordionSidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+  }
+  
+  /* Estado colapsado del sidebar en móviles */
+  #accordionSidebar.sidebar-collapsed {
+    transform: translateX(-100%);
+  }
+  
+  /* Sidebar visible */
+  #accordionSidebar.sidebar-open {
+    transform: translateX(0);
+  }
+}
+
+/* Overlay para móviles cuando el sidebar está abierto */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* Botón toggle para móviles */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background-color: #500a89;
+  transform: scale(1.05);
+}
+
+/* Títulos del sidebar */
+.sidebar-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #6a0dad;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0e6fd;
+}
+
+.sidebar-subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #6a0dad;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-left: 10px;
+  border-left: 3px solid #6a0dad;
+}
+
+/* Links de navegación */
+.custom-link {
+  color: #6a0dad !important;
+  padding: 12px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.custom-link:hover {
+  background-color: #f0e6fd;
+  color: #500a89 !important;
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(106, 13, 173, 0.2);
+}
+
+.active-links {
+  background-color: #6a0dad !important;
+  color: white !important;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
+}
+
+.active-links:hover {
+  background-color: #500a89 !important;
+  color: white !important;
+}
+
+/* Iconos */
+.custom-link svg,
+.custom-link i {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Items de navegación */
+.nav-item {
+  list-style: none;
+  margin: 0;
+}
+
+/* Scrollbar personalizada */
+#accordionSidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+#accordionSidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#accordionSidebar::-webkit-scrollbar-thumb {
+  background: #6a0dad;
+  border-radius: 10px;
+}
+
+#accordionSidebar::-webkit-scrollbar-thumb:hover {
+  background: #500a89;
+}
+
+/* Media Queries */
+
+/* Tablets grandes y laptops pequeñas */
+@media (max-width: 1200px) and (min-width: 769px) {
+  #accordionSidebar {
+    width: 200px;
+    padding: 18px;
+  }
+  
+  .sidebar-title {
+    font-size: 22px;
+  }
+  
+  .custom-link {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  /* Mostrar botón toggle */
+  .sidebar-toggle {
+    display: block;
+  }
+  
+  /* Sidebar ocupa menos ancho en tablets */
+  #accordionSidebar {
+    width: 280px;
     padding: 20px;
   }
   
-  /* Títulos */
+  /* Ajustar contenido principal cuando el sidebar está abierto */
+  .main-content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+  
   .sidebar-title {
-    font-size: 24px;
-    font-weight: bold;
-/*  text-align: center;  */    
+    font-size: 20px;
     margin-bottom: 15px;
   }
   
   .sidebar-subtitle {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
     margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .custom-link {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .sidebar-toggle {
+    top: 10px;
+    left: 10px;
+    padding: 8px;
+  }
+  
+  #accordionSidebar {
+    width: 100vw;
+    max-width: 300px;
+    padding: 15px;
+  }
+  
+  .sidebar-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-subtitle {
+    font-size: 14px;
+    margin-top: 15px;
     margin-bottom: 10px;
   }
-  .sidebar-dashboard .custom-link {
-  color: white !important;
-}
-  /* Links de navegación */
+  
   .custom-link {
-    color: #6a0dad !important;  /* Morado */
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
+    padding: 10px 12px;
+    font-size: 13px;
     gap: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
   }
   
+  .custom-link svg,
+  .custom-link i {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+  #accordionSidebar {
+    width: 100vw;
+    padding: 12px;
+  }
+  
+  .sidebar-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .sidebar-subtitle {
+    font-size: 13px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .custom-link {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 8px;
+  }
+  
+  .custom-link svg,
+  .custom-link i {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.sidebar-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.sidebar-slide-out {
+  animation: slideOut 0.3s ease-out;
+}
+
+/* Estados de hover mejorados */
+@media (hover: hover) {
   .custom-link:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #9b79c2; /* Un tono más oscuro de morado */
+    transform: translateX(5px);
   }
   
-.active-links {
-  background-color: #6a0dad !important; /* Morado */
-  color: white !important; /* Texto blanco para contraste */
-  font-weight: bold;
-  border-radius: 5px;
+  .sidebar-toggle:hover {
+    transform: scale(1.1);
+  }
 }
 
-
-  
-  .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+/* Mejoras para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  #accordionSidebar,
+  .custom-link,
+  .sidebar-toggle {
+    transition: none;
   }
   
-  .book-card {
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 450px;
-    max-width: 470px;
-
+  .sidebar-slide-in,
+  .sidebar-slide-out {
+    animation: none;
   }
-  .book-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-  }
-
-  .book-image {
-    width: 150px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 15px;
-  }
-  
-  .book-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribuye título arriba y botón abajo */
-  flex: 1;
-  }
-  
-  .book-title {
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
-  }
-  
-  .book-description {
-  font-size: 14px;
-  color: #666;
-  flex-grow: 1; /* Permite que la descripción ocupe espacio sin empujar el botón */
-  }
-  
-  .read-more-btn {
-    align-self: flex-start;
-    background-color: #f0e6fd;  
-    color: black;
-    border: none;
-    padding: 8px 22px;
-    border-radius: 43px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .read-more-btn:hover {
-    background-color: #500a89;
-    color: white;
-  }
-  
-.category-filter {
-  padding: 8px 12px;
-  border-radius: 40px;
-  border: 1px solid white;
-  box-shadow:0px 0px 10px 5px rgba(0, 0, 0, 0.2);
-  background-color: white;
-  font-size: 16px;
-  color: #880dadee; /* Color oscuro para mejor visibilidad */
-  cursor: pointer;
-  font-weight: bold;
 }
-
-.category-filter:focus {
-  outline: none;
-  border-color: #6a0dad;
-}
-
-.no-books-message {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666;
-  text-align: center;
-}
-
-
-
-
-.container {
-  padding: 20px;
-  text-align: center;
-}
-
-.category-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.category-filter {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.filter-btn {
-  color: #500a89;
-  font-size: 15px;
-  padding: 3px 9px;
-  border: none;
-  background-color: #ddd;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.filter-btn.active {
-  background-color: #6a0dad;
-  color: white;
-}
-
-
-
-
-
-

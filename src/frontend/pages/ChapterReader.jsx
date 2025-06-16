@@ -1,3 +1,4 @@
+/* eslint-disable no-cond-assign */
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
@@ -118,7 +119,6 @@ export default function ChapterReader() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      // Actualizar el estado local
       setHighlights(prev => prev.filter(h => h.id !== highlightId));
       console.log('Resaltado eliminado exitosamente');
     } catch (error) {
@@ -126,7 +126,6 @@ export default function ChapterReader() {
     }
   };
 
-  // Función mejorada para calcular offsets correctos
   const getTextOffset = (container, node, offset) => {
     let textOffset = 0;
     const walker = document.createTreeWalker(
@@ -146,7 +145,6 @@ export default function ChapterReader() {
     return textOffset;
   };
 
-  // Manejo mejorado de selección de texto
   const handleTextSelection = async () => {
     if (isProcessingHighlight) return;
     
@@ -170,10 +168,9 @@ export default function ChapterReader() {
       return;
     }
 
-    // Verificar que no estamos seleccionando dentro de un resaltado existente
     let currentNode = range.commonAncestorContainer;
     while (currentNode && currentNode !== container) {
-      if (currentNode.classList && currentNode.classList.contains('text-highlight')) {
+      if (currentNode.classList && currentNode.classList.contains('text-highlight-mobile-unique')) {
         console.log('Selección dentro de un resaltado existente, ignorando...');
         selection.removeAllRanges();
         return;
@@ -184,7 +181,6 @@ export default function ChapterReader() {
     setIsProcessingHighlight(true);
 
     try {
-      // Calcular offsets usando solo el texto plano
       const startOffset = getTextOffset(container, range.startContainer, range.startOffset);
       const endOffset = getTextOffset(container, range.endContainer, range.endOffset);
 
@@ -210,22 +206,18 @@ export default function ChapterReader() {
     }
   };
 
-  // Función mejorada para renderizar contenido con resaltados
   const renderHighlightedContent = () => {
     if (!chapter || !chapter.contenido) return '';
 
     let content = chapter.contenido;
     
-    // Ordenar resaltados por posición (del final al inicio para evitar problemas de offset)
     const sortedHighlights = [...highlights].sort((a, b) => b.startOffset - a.startOffset);
 
-    // Aplicar resaltados
     sortedHighlights.forEach(highlight => {
       const before = content.substring(0, highlight.startOffset);
       const highlightedText = content.substring(highlight.startOffset, highlight.endOffset);
       const after = content.substring(highlight.endOffset);
       
-      // Escapar el texto para evitar problemas de HTML
       const escapedText = highlightedText
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
@@ -234,16 +226,14 @@ export default function ChapterReader() {
         .replace(/'/g, '&#39;');
       
       content = before + 
-        `<span class="text-highlight" data-highlight-id="${highlight.id}" style="background-color: ${highlight.color}; cursor: pointer; padding: 2px 4px; border-radius: 3px; position: relative; z-index: 1;" title="Doble clic para eliminar">${escapedText}</span>` + 
+        `<span class="text-highlight-mobile-unique" data-highlight-id="${highlight.id}" style="background-color: ${highlight.color}; cursor: pointer; padding: 2px 4px; border-radius: 3px; position: relative; z-index: 1;" title="Doble clic para eliminar">${escapedText}</span>` + 
         after;
     });
 
     return content;
   };
 
-  // Manejo mejorado de clics en resaltados
   const handleHighlightClick = (e) => {
-    // Prevenir la selección de texto en doble clic
     if (e.detail === 2) {
       e.preventDefault();
       e.stopPropagation();
@@ -255,20 +245,17 @@ export default function ChapterReader() {
     }
   };
 
-  // Efecto para actualizar el contenido cuando cambien los resaltados
   useEffect(() => {
     if (chapter && contentRef.current) {
       const contentElement = contentRef.current;
       contentElement.innerHTML = renderHighlightedContent();
       
-      // Agregar event listeners a los resaltados
-      const highlightElements = contentElement.querySelectorAll('.text-highlight');
+      const highlightElements = contentElement.querySelectorAll('.text-highlight-mobile-unique');
       
       const clickHandler = (e) => handleHighlightClick(e);
       
       highlightElements.forEach(el => {
         el.addEventListener('click', clickHandler);
-        // Prevenir selección en doble clic
         el.addEventListener('mousedown', (e) => {
           if (e.detail > 1) {
             e.preventDefault();
@@ -276,23 +263,23 @@ export default function ChapterReader() {
         });
       });
 
-      // Cleanup function
       return () => {
         highlightElements.forEach(el => {
           el.removeEventListener('click', clickHandler);
         });
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter, highlights]);
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <div className="loading-content">
-          <div className="spinner-border loading-spinner" role="status">
+      <div id="chapter-loading-container-unique">
+        <div id="chapter-loading-content-unique">
+          <div id="chapter-loading-spinner-unique">
             <span className="visually-hidden">Cargando...</span>
           </div>
-          <p className="loading-text">Cargando capítulo...</p>
+          <p id="chapter-loading-text-unique">Cargando capítulo...</p>
         </div>
       </div>
     );
@@ -300,10 +287,10 @@ export default function ChapterReader() {
 
   if (!chapter) {
     return (
-      <div className="error-container">
-        <div className="error-content">
-          <h3 className="error-title">Capítulo no encontrado</h3>
-          <Link to={`/libros/${libroId}`} className="btn btn-primary">
+      <div id="chapter-error-container-unique">
+        <div id="chapter-error-content-unique">
+          <h3 id="chapter-error-title-unique">Capítulo no encontrado</h3>
+          <Link to={`/libros/${libroId}`} id="chapter-error-back-btn-unique">
             Volver al libro
           </Link>
         </div>
@@ -316,34 +303,36 @@ export default function ChapterReader() {
   const nextChapter = capitulosOrdenados[currentIndex + 1];
 
   return (
-    <div className="chapter-reader-container">
+    <div id="chapter-reader-page-unique">
       {/* Header del capítulo */}
-      <div className="chapter-header">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-auto">
-              <Link to={`/book/${libroId}`} className="btn btn-outline-secondary btn-sm">
-                <i className="fas fa-arrow-left me-1"></i> Volver al libro
+      <div id="chapter-header-unique">
+        <div id="chapter-header-container-unique">
+          <div id="chapter-header-content-unique">
+            <div id="chapter-back-btn-container-unique">
+              <Link to={`/book/${libroId}`} id="chapter-back-btn-unique">
+                <i className="fas fa-arrow-left"></i>
+                <span>Volver</span>
               </Link>
             </div>
-            <div className="col">
-              <div className="d-flex align-items-center justify-content-center chapter-nav-buttons">
+            
+            <div id="chapter-nav-center-unique">
+              <div id="chapter-nav-buttons-unique">
                 {prevChapter && (
                   <Link 
                     to={`/capitulos/${libroId}/${prevChapter.orden}`} 
-                    className="btn btn-sm me-2 btn-morado"
+                    id="chapter-prev-btn-unique"
                     title={prevChapter.titulo}
                   >
                     <i className="fas fa-chevron-left"></i>
                   </Link>
                 )}
-                <span className="chapter-progress">
-                  Capítulo {numeroCapitulo} de {capitulosOrdenados.length}
+                <span id="chapter-progress-unique">
+                  {numeroCapitulo} / {capitulosOrdenados.length}
                 </span>
                 {nextChapter && (
                   <Link 
                     to={`/capitulos/${libroId}/${nextChapter.orden}`} 
-                    className="btn btn-sm ms-2 btn-morado"
+                    id="chapter-next-btn-unique"
                     title={nextChapter.titulo}
                   >
                     <i className="fas fa-chevron-right"></i>
@@ -351,14 +340,17 @@ export default function ChapterReader() {
                 )}
               </div>
             </div>
-            <div className="col-auto">
+            
+            <div id="chapter-badge-container-unique">
               {chapter.esGratuito ? (
-                <span className="badge chapter-badge-free">
-                  <i className="fas fa-unlock me-1"></i>Gratuito
+                <span id="chapter-badge-free-unique">
+                  <i className="fas fa-unlock"></i>
+                  <span>Gratuito</span>
                 </span>
               ) : (
-                <span className="badge chapter-badge-premium">
-                  <i className="fas fa-crown me-1"></i>Premium
+                <span id="chapter-badge-premium-unique">
+                  <i className="fas fa-crown"></i>
+                  <span>Premium</span>
                 </span>
               )}
             </div>
@@ -367,44 +359,38 @@ export default function ChapterReader() {
       </div>
 
       {/* Contenido principal */}
-      <div className="container chapter-main-content">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 col-md-10">
-            {chapter.esGratuito ? (
-              <div>
-                <div className="chapter-title-section">
-                  <h1 className="chapter-title">
-                    {chapter.titulo}
-                  </h1>
-                  <div className="chapter-title-divider"></div>
-                </div>
+      <div id="chapter-main-container-unique">
+        <div id="chapter-content-wrapper-unique">
+          {chapter.esGratuito ? (
+            <div id="chapter-free-content-unique">
+              <div id="chapter-title-section-unique">
+                <h1 id="chapter-title-unique">
+                  {chapter.titulo}
+                </h1>
+                <div id="chapter-title-divider-unique"></div>
+              </div>
 
-                {/* Toolbar de resaltado */}
-                <div className="highlight-toolbar mb-3">
-                  <div className="d-flex align-items-center justify-content-between">
-                    <small className="text-muted">
-                      <i className="fas fa-highlighter me-1"></i>
-                      Selecciona texto para resaltar. Doble clic en resaltados para eliminar.
-                    </small>
-                    <div className="highlight-stats">
-                      <small className="text-muted">
-                        {highlights.length} resaltado{highlights.length !== 1 ? 's' : ''}
-                      </small>
-                    </div>
+              {/* Toolbar de resaltado */}
+              <div id="chapter-highlight-toolbar-unique">
+                <div id="chapter-highlight-toolbar-content-unique">
+                  <div id="chapter-highlight-instructions-unique">
+                    <i className="fas fa-highlighter"></i>
+                    <span>Selecciona texto para resaltar. Doble clic en resaltados para eliminar.</span>
+                  </div>
+                  <div id="chapter-highlight-stats-unique">
+                    <span id="chapter-highlight-count-unique">
+                      {highlights.length} resaltado{highlights.length !== 1 ? 's' : ''}
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                {/* Contenido del capitulo */}
+              {/* Contenido del capítulo */}
+              <div id="chapter-content-card-unique">
                 <div
                   ref={contentRef}
-                  className="chapter-content web-friendly"
-                  style={{ 
-                    whiteSpace: 'pre-line',
-                    userSelect: 'text',
-                    cursor: 'text'
-                  }}
+                  id="chapter-content-text-unique"
                   onMouseUp={handleTextSelection}
-                  // Prevenir la selección múltiple accidental
                   onSelectStart={(e) => {
                     if (isProcessingHighlight) {
                       e.preventDefault();
@@ -412,84 +398,86 @@ export default function ChapterReader() {
                   }}
                 />
               </div>
-            ) : (
-              /* Contenido premium */
-              <div>
-                <div className="chapter-title-section">
-                  <h1 className="chapter-title">PDF</h1>
-                  <div className="chapter-title-divider"></div>
+            </div>
+          ) : (
+            /* Contenido premium */
+            <div id="chapter-premium-content-unique">
+              <div id="chapter-title-section-unique">
+                <h1 id="chapter-title-unique">PDF</h1>
+                <div id="chapter-title-divider-unique"></div>
+              </div>
+              
+              <div id="chapter-premium-card-unique">
+                <div id="chapter-premium-icon-unique">
+                  <i className="fas fa-lock"></i>
                 </div>
-                <div className="premium-content-card">
-                  <div className="premium-lock-icon">
-                    <i className="fas fa-lock"></i>
-                  </div>
-                  <h3 className="premium-title">Contenido en PDF</h3>
-                  <p className="premium-description">
-                    Para continuar con el siguente capitulo por favor descargue el PDF.
-                  </p>
-                  <div className="my-3"></div>
-                  <div className="d-flex justify-content-center">
-                    <PDFDownloader 
-                      libroId={libro.id}
-                      titulo={libro.titulo}
-                      usuarioRegistrado={true}
-                      haPagado={true}
-                      mostrarVisor={true}
-                    />
-                  </div>
-                  <div className="premium-guarantee">
-                    <small>
-                      <i className="fas fa-shield-alt me-1"></i>
-                      Podra disfrutar del contenido sin limitaciones.
-                    </small>
-                  </div>
+                <h3 id="chapter-premium-title-unique">Contenido en PDF</h3>
+                <p id="chapter-premium-description-unique">
+                  Para continuar con el siguiente capítulo por favor descargue el PDF.
+                </p>
+                
+                <div id="chapter-premium-download-unique">
+                  <PDFDownloader 
+                    libroId={libro.id}
+                    titulo={libro.titulo}
+                    usuarioRegistrado={true}
+                    haPagado={true}
+                    mostrarVisor={true}
+                  />
+                </div>
+                
+                <div id="chapter-premium-guarantee-unique">
+                  <small>
+                    <i className="fas fa-shield-alt"></i>
+                    Podrá disfrutar del contenido sin limitaciones.
+                  </small>
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Navegación entre capítulos */}
-            <div className="d-flex justify-content-between align-items-center chapter-navigation">
-              <div>
-                {prevChapter ? (
-                  <Link 
-                    to={`/capitulos/${libroId}/${prevChapter.orden}`} 
-                    className="btn chapter-nav-button"
-                  >
-                    <i className="fas fa-chevron-left me-2 mi-icono"></i>
-                    <div className="chapter-nav-info text-start">
-                      <small className="chapter-nav-label">Anterior</small>
-                      <span className="chapter-nav-title">
-                        {prevChapter.titulo.length > 25 
-                          ? prevChapter.titulo.substring(0, 25) + '...' 
-                          : prevChapter.titulo}
-                      </span>
-                    </div>
-                  </Link>
-                ) : (
-                  <div></div>
-                )}
-              </div>
+          {/* Navegación entre capítulos */}
+          <div id="chapter-navigation-unique">
+            <div id="chapter-nav-prev-unique">
+              {prevChapter ? (
+                <Link 
+                  to={`/capitulos/${libroId}/${prevChapter.orden}`} 
+                  id="chapter-nav-prev-link-unique"
+                >
+                  <i className="fas fa-chevron-left"></i>
+                  <div id="chapter-nav-prev-info-unique">
+                    <small>Anterior</small>
+                    <span>
+                      {prevChapter.titulo.length > 25 
+                        ? prevChapter.titulo.substring(0, 25) + '...' 
+                        : prevChapter.titulo}
+                    </span>
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+            </div>
 
-              <div>
-                {nextChapter ? (
-                  <Link 
-                    to={`/capitulos/${libroId}/${nextChapter.orden}`} 
-                    className="btn chapter-nav-button"
-                  >
-                    <div className="chapter-nav-info text-end">
-                      <small className="chapter-nav-label">Siguiente</small>
-                      <span className="chapter-nav-title">
-                        {nextChapter.titulo.length > 25 
-                          ? nextChapter.titulo.substring(0, 25) + '...' 
-                          : nextChapter.titulo}
-                      </span>
-                    </div>
-                    <i className="fas fa-chevron-right ms-2 mi-icono"></i>
-                  </Link>
-                ) : (
-                  <div></div>
-                )}
-              </div>
+            <div id="chapter-nav-next-unique">
+              {nextChapter ? (
+                <Link 
+                  to={`/capitulos/${libroId}/${nextChapter.orden}`} 
+                  id="chapter-nav-next-link-unique"
+                >
+                  <div id="chapter-nav-next-info-unique">
+                    <small>Siguiente</small>
+                    <span>
+                      {nextChapter.titulo.length > 25 
+                        ? nextChapter.titulo.substring(0, 25) + '...' 
+                        : nextChapter.titulo}
+                    </span>
+                  </div>
+                  <i className="fas fa-chevron-right"></i>
+                </Link>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
         </div>

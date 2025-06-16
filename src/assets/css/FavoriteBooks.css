@@ -1,0 +1,458 @@
+/* Estilos base para la página de favoritos - Con prefijo fb- (FavoriteBooks) */
+.fb-favorites-page {
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.fb-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header de favoritos */
+.fb-favorites-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.fb-favorites-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+.fb-category-filter-container {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Filtro de categorías */
+.fb-category-filter {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 2px solid #e0e0e0;
+  background-color: white;
+  font-size: 16px;
+  color: #500a89;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fb-category-filter:focus {
+  outline: none;
+  border-color: #6a0dad;
+  box-shadow: 0px 4px 12px rgba(106, 13, 173, 0.2);
+}
+
+.fb-category-filter:hover {
+  border-color: #6a0dad;
+}
+
+/* Grid de libros - Mobile First */
+.fb-book-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Card de libro */
+.fb-book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.fb-book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del libro */
+.fb-book-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Información del libro */
+.fb-book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  width: 100%;
+}
+
+.fb-book-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.fb-book-description {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Acciones del libro */
+.fb-book-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.fb-read-more-btn {
+  background-color: #f0e6fd;
+  color: #500a89;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.fb-read-more-btn:hover {
+  background-color: #500a89;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Botón de favorito */
+.fb-favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fb-favorite-btn.fb-active {
+  color: #e74c3c;
+}
+
+.fb-favorite-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.fb-favorite-btn.fb-active:hover {
+  color: #c0392b;
+}
+
+/* Icono del corazón */
+.fb-heart-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Mensajes informativos */
+.fb-loading-message,
+.fb-no-favorites-message,
+.fb-auth-message {
+  text-align: center;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.fb-loading-message {
+  color: #666;
+  font-size: 18px;
+}
+
+.fb-no-favorites-message p,
+.fb-auth-message p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+}
+
+.fb-auth-message {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 10px;
+}
+
+.fb-auth-message p {
+  color: #856404;
+}
+
+/* Media Queries para tablets */
+@media (min-width: 768px) {
+  .fb-favorites-page {
+    padding: 20px;
+  }
+  
+  .fb-favorites-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .fb-favorites-title {
+    text-align: left;
+    font-size: 28px;
+  }
+  
+  .fb-category-filter-container {
+    width: auto;
+    min-width: 250px;
+  }
+  
+  .fb-book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .fb-book-card {
+    flex-direction: row;
+    text-align: left;
+    max-width: 100%;
+    padding: 25px;
+  }
+  
+  .fb-book-image {
+    width: 120px;
+    height: 160px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  .fb-book-title {
+    font-size: 20px;
+  }
+  
+  .fb-book-description {
+    font-size: 15px;
+    -webkit-line-clamp: 4;
+  }
+  
+  .fb-book-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Media Queries para desktop */
+@media (min-width: 1024px) {
+  .fb-container {
+    padding: 40px;
+  }
+  
+  .fb-book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .fb-book-card {
+    max-width: 480px;
+    padding: 30px;
+  }
+  
+  .fb-book-image {
+    width: 140px;
+    height: 180px;
+  }
+  
+  .fb-favorites-title {
+    font-size: 32px;
+  }
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 1400px) {
+  .fb-book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes fb-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fb-favorite-btn.fb-active:active {
+  animation: fb-pulse 0.3s ease;
+}
+
+/* Estados de carga */
+.fb-loading-message::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #666;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: fb-spin 1s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes fb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .fb-book-card,
+  .fb-read-more-btn,
+  .fb-favorite-btn {
+    transition: none;
+  }
+  
+  .fb-book-card:hover {
+    transform: none;
+  }
+  
+  .fb-read-more-btn:hover {
+    transform: none;
+  }
+  
+  .fb-favorite-btn:hover {
+    transform: none;
+  }
+  
+  .fb-loading-message::after {
+    animation: none;
+  }
+  
+  .fb-favorite-btn.fb-active:active {
+    animation: none;
+  }
+}
+
+/* Focus states para navegación por teclado */
+.fb-category-filter:focus,
+.fb-read-more-btn:focus,
+.fb-favorite-btn:focus {
+  outline: 2px solid #6a0dad;
+  outline-offset: 2px;
+}
+
+/* Responsive para móviles pequeños */
+@media (max-width: 480px) {
+  .fb-container {
+    padding: 15px;
+  }
+  
+  .fb-favorites-title {
+    font-size: 20px;
+  }
+  
+  .fb-book-card {
+    padding: 15px;
+    max-width: 280px;
+  }
+  
+  .fb-book-image {
+    width: 120px;
+    height: 160px;
+  }
+  
+  .fb-book-title {
+    font-size: 16px;
+  }
+  
+  .fb-book-description {
+    font-size: 13px;
+  }
+  
+  .fb-read-more-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .fb-category-filter {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* Estados hover específicos para botones */
+.fb-read-more-btn:active {
+  transform: scale(0.98);
+}
+
+.fb-favorite-btn:active {
+  transform: scale(0.95);
+}
+
+/* Animación de entrada para los libros */
+@keyframes fb-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fb-book-card {
+  animation: fb-fadeInUp 0.5s ease forwards;
+}
+
+/* Staggered animation para múltiples libros */
+.fb-book-card:nth-child(1) { animation-delay: 0.1s; }
+.fb-book-card:nth-child(2) { animation-delay: 0.2s; }
+.fb-book-card:nth-child(3) { animation-delay: 0.3s; }
+.fb-book-card:nth-child(4) { animation-delay: 0.4s; }
+.fb-book-card:nth-child(5) { animation-delay: 0.5s; }
+.fb-book-card:nth-child(6) { animation-delay: 0.6s; }
